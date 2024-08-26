@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'usuarios-admin',
     loadChildren: () => import('./pages/usuarios-admin/usuarios-admin.module').then( m => m.UsuariosAdminPageModule)
   },
+  {
+    path: 'usuarios-create',
+    loadChildren: () => import('./pages/usuarios-create/usuarios-create.module').then( m => m.UsuariosCreatePageModule)
+  },
 ];
 
 @NgModule({
