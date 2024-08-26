@@ -27,6 +27,12 @@ export class UsuariosService {
     return this.http.post<any>(`${this.apiUrl}/auth/login`, credentials);
   }
 
+  // Método para obtener un usuario
+  getUsuario(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/users/${id}`, { headers: this.getHeaders() });
+  }
+  
+
   // Método para obtener todos los usuarios (solo para administradores)
   getUsuarios(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/users/all`, { headers: this.getHeaders() });

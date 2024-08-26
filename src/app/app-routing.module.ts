@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'usuarios-create',
     loadChildren: () => import('./pages/usuarios-create/usuarios-create.module').then( m => m.UsuariosCreatePageModule)
   },
+  {
+    path: 'usuarios-edit/:id',  // Asegúrate de que la ruta incluye el parámetro :id
+    loadChildren: () => import('./pages/usuarios-edit/usuarios-edit.module').then(m => m.UsuariosEditPageModule)
+  },
 ];
 
 @NgModule({
