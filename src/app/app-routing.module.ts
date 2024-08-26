@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
+
 
 const routes: Routes = [
   {
@@ -17,15 +19,21 @@ const routes: Routes = [
   },
   {
     path: 'usuarios-admin',
-    loadChildren: () => import('./pages/usuarios-admin/usuarios-admin.module').then( m => m.UsuariosAdminPageModule)
+    loadChildren: () => import('./pages/usuarios-admin/usuarios-admin.module').then(m => m.UsuariosAdminPageModule),
+    canActivate: [AuthGuard], // Protege la ruta
+    data: { roles: [1] } // Solo los administradores (rol 1) pueden acceder
   },
   {
     path: 'usuarios-create',
-    loadChildren: () => import('./pages/usuarios-create/usuarios-create.module').then( m => m.UsuariosCreatePageModule)
+    loadChildren: () => import('./pages/usuarios-create/usuarios-create.module').then(m => m.UsuariosCreatePageModule),
+    canActivate: [AuthGuard], // Protege la ruta
+    data: { roles: [1] } // Solo los administradores (rol 1) pueden acceder
   },
   {
-    path: 'usuarios-edit/:id',  // Asegúrate de que la ruta incluye el parámetro :id
-    loadChildren: () => import('./pages/usuarios-edit/usuarios-edit.module').then(m => m.UsuariosEditPageModule)
+    path: 'usuarios-edit/:id',
+    loadChildren: () => import('./pages/usuarios-edit/usuarios-edit.module').then(m => m.UsuariosEditPageModule),
+    canActivate: [AuthGuard], // Protege la ruta
+    data: { roles: [1] } // Solo los administradores (rol 1) pueden acceder
   },
 ];
 
