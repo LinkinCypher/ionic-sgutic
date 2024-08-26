@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UsuariosService } from '../../servicios/usuarios.service';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular'; // Importar ToastController
 
 @Component({
   selector: 'app-usuarios-create',
@@ -18,13 +19,27 @@ export class UsuariosCreatePage {
     fecha_nacimiento: ''
   };
 
-  constructor(private usuariosService: UsuariosService, private router: Router) {}
+  constructor(
+    private usuariosService: UsuariosService,
+    private router: Router,
+    private toastController: ToastController // Inyectar ToastController
+  ) {}
+
+  async mostrarToast(mensaje: string, color: string = 'success') {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2000,
+      color: color,
+    });
+    toast.present();
+  }
 
   crearUsuario() {
     this.usuariosService.crearUsuario(this.usuario).subscribe(() => {
-      console.log('Usuario creado exitosamente');
+      this.mostrarToast('Usuario creado exitosamente');
       this.router.navigate(['/usuarios-admin']); // Redirige a la lista de usuarios
     }, error => {
+      this.mostrarToast('Error al crear el usuario', 'danger');
       console.error('Error al crear el usuario:', error);
     });
   }

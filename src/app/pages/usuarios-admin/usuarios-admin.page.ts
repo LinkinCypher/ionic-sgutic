@@ -41,4 +41,29 @@ export class UsuariosAdminPage implements OnInit {
       console.error('Error al eliminar el usuario:', error);
     });
   }
+
+  getRolTexto(rol: number): string {
+    switch (rol) {
+      case 1:
+        return 'Administrador';
+      case 2:
+        return 'Gestor';
+      case 3:
+        return 'Técnico';
+      case 4:
+        return 'Usuario';
+      default:
+        return 'Desconocido';
+    }
+  }
+
+  getEstadoTexto(estado: boolean): string {
+    return estado ? 'Desactivado' : 'Activo';
+  }
+  
+  getEstadoColor(estado: boolean): string {
+    return estado ? 'danger' : 'success'; // 'success' para verde, 'danger' para rojo
+  }
+  
+  
 }
