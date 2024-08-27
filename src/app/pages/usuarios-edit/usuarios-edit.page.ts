@@ -23,6 +23,7 @@ export class UsuariosEditPage implements OnInit {
     if (id) {
       this.usuariosService.getUsuario(id).subscribe(data => {
         this.usuario = data;
+        this.usuario.password = ''; // Limpia el campo de la contraseña
       }, error => {
         this.mostrarToast('Error al cargar el usuario', 'danger');
         console.error('Error al cargar el usuario:', error);
@@ -32,6 +33,10 @@ export class UsuariosEditPage implements OnInit {
  
   actualizarUsuario() {
     const id = this.route.snapshot.paramMap.get('id')!;
+    // Si el campo de contraseña está vacío, se elimina el campo antes de enviar la solicitud
+    if (!this.usuario.password) {
+      delete this.usuario.password;
+    }
     this.usuariosService.actualizarUsuario(id, this.usuario).subscribe(() => {
       this.mostrarToast('Usuario actualizado exitosamente');
       this.router.navigate(['/usuarios-admin']);
