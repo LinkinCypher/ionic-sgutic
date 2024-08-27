@@ -1,23 +1,55 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <!-- <ion-title>Login</ion-title> -->
   </ion-toolbar>
+  <!--
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="login" text=""></ion-back-button>
+  </ion-buttons>
+  -->
 </ion-header>
 
+
+
+
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label position="floating">Usuario</ion-label>
-          <ion-input [(ngModel)]="credentials.usuario" type="text"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Contraseña</ion-label>
-          <ion-input [(ngModel)]="credentials.password" type="password"></ion-input>
-        </ion-item>
-        <ion-button expand="full" (click)="login()">Iniciar Sesión</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+
+
+  <ion-card class="ion-no-margin">
+    <ion-img src="assets/images/header.png"></ion-img>
+    <ion-card-header>
+      <ion-card-title>
+        Bienvenido
+      </ion-card-title>
+      <hr>
+      <ion-card-subtitle>
+        Sistema de gestión de la Unidad de tecnologías de la información y comunicación.
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card-content>
+    <div class="wrapform">
+      <ion-item>
+        <ion-icon name="person"></ion-icon>
+        <ion-input [(ngModel)]="credentials.usuario" type="text" placeholder="Usuario"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="key"></ion-icon>
+        <ion-input [(ngModel)]="credentials.password" type="password" placeholder="Contraseña"></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="sign-btn-wrap">
+      <ion-button shape="round" expand="full" (click)="login()">Iniciar Sesión</ion-button>
+    </div>
+
+  </ion-card-content>
+
+
 </ion-content>
