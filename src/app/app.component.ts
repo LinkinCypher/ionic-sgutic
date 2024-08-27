@@ -34,4 +34,8 @@ export class AppComponent implements OnInit {
   closeMenu() {
     this.menu.close(); // Cierra el menú al seleccionar una opción
   }
+
+  logout() {
+    this.authService.logout(); // Limpia el token y otros datos del usuario
+  }
 }

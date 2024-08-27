@@ -27,6 +27,8 @@ export class AuthService {
   logout(): void {
     // Elimina el token de localStorage
     localStorage.removeItem('access_token');
+    // Redirige a la página de login
+    window.location.href = '/login'; // Puedes usar window.location.href o el Router de Angular
   }
 
   isAuthenticated(): boolean {
@@ -60,4 +62,6 @@ export class AuthService {
     }
     return null;
   }
+
+  
 }
