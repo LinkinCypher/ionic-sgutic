@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './servicios/auth.service';
 import { Router } from '@angular/router';
-import { ChangeDetectorRef } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 
 @Component({
@@ -15,21 +14,20 @@ export class AppComponent implements OnInit {
   constructor(
     private authService: AuthService, 
     private router: Router, 
-    private cdr: ChangeDetectorRef,
     private menu: MenuController
   ) {}
 
   ngOnInit() {
-    this.verificarRol();
+    this.authService.getAuthStatus().subscribe(isAuthenticated => {
+      if (isAuthenticated) {
+        this.authService.getUserRole().subscribe(rol => {
+          this.esAdmin = rol === 1;
+        });
+      } else {
+        this.esAdmin = false;
+      }
+    });
   }
-
-  verificarRol() {
-    const rol = this.authService.obtenerRolUsuario();
-    console.log('Rol del usuario:', rol); // Verifica que el rol sea 1
-    this.esAdmin = rol === 1;
-    console.log('Es Admin:', this.esAdmin); // Verifica que esAdmin se configure como true
-    this.cdr.detectChanges();
-  }  
 
   closeMenu() {
     this.menu.close(); // Cierra el menú al seleccionar una opción
