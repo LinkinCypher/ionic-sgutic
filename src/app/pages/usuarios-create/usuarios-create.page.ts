@@ -14,8 +14,8 @@ export class UsuariosCreatePage {
     apellidos: '',
     usuario: '',
     password: '',
-    rol: 2, // Rol por defecto, por ejemplo, Gestor
-    estado: true,
+    rol: 4, // Rl por defecto
+    estado: true, // Por defeccto se crea un usuario con el estado true
     fecha_nacimiento: ''
   };
 
