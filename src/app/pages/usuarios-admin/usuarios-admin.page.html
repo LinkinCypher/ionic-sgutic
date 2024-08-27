@@ -13,13 +13,19 @@
   <ion-list>
     <ion-item *ngFor="let usuario of usuarios">
       <ion-label>
-        <h2 >{{ usuario.nombres }} {{ usuario.apellidos }} : 
+        <h2>{{ usuario.nombres }} {{ usuario.apellidos }} 
           <span [ngClass]="getEstadoColor(usuario.estado)"> {{ getEstadoTexto(usuario.estado) }} </span>
         </h2>
-        <p>{{ usuario.usuario }} : {{ getRolTexto(usuario.rol) }}</p>
+        <p>{{ usuario.usuario }} es {{ getRolTexto(usuario.rol) }}</p>
       </ion-label>
-      <ion-button fill="outline" slot="end" (click)="editarUsuario(usuario._id)">Editar</ion-button>
-      <ion-button fill="outline" color="danger" slot="end" (click)="eliminarUsuario(usuario._id)">Desactivar</ion-button>
+      <div class="button-group" slot="end">
+        <ion-button fill="outline" (click)="editarUsuario(usuario._id)">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+        <ion-button fill="outline" color="danger" (click)="eliminarUsuario(usuario._id)">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </div>
     </ion-item>
   </ion-list>
 </ion-content>

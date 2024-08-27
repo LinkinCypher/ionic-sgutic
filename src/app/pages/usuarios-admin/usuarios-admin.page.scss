@@ -5,4 +5,23 @@
 .danger {
     color: red;
 }
+
+ion-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    .button-group {
+      display: flex;
+      flex-direction: column; /* Coloca los botones en una columna (uno sobre el otro) */
+      width: 20%; /* Ajusta el ancho del contenedor al 20% */
+      max-width: 50px; /* Establece un ancho máximo si es necesario */
+      min-width: 50px; /* Establece un ancho mínimo si es necesario */
+      margin-left: 5px; /* Espacio entre el contenido y los botones */
+    }
+  
+    ion-button {
+      margin-bottom: 5px; /* Añade un margen entre los botones */
+    }
+  }
   
