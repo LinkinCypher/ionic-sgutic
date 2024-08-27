@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../../servicios/usuarios.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-usuarios-admin',
@@ -8,30 +9,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./usuarios-admin.page.scss'],
 })
 export class UsuariosAdminPage implements OnInit {
-  usuarios: any[] = []; // Array para almacenar los usuarios
+  usuarios: any[] = [];
 
-  constructor(private usuariosService: UsuariosService, private router: Router) {}
+  constructor(private usuariosService: UsuariosService, private router: Router) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd && event.url === '/usuarios-admin')
+    ).subscribe(() => {
+      this.cargarUsuarios(); // Recargar usuarios cuando se navega a la página
+    });
+  }
 
   ngOnInit() {
-    this.cargarUsuarios(); // Cargar los usuarios al iniciar la página
+    this.cargarUsuarios(); // Cargar usuarios al iniciar la página
   }
 
   cargarUsuarios() {
     this.usuariosService.getUsuarios().subscribe(data => {
-      this.usuarios = data; // Asigna los usuarios obtenidos al array
-      console.log('Lista de usuarios:', this.usuarios); // Log para mostrar la lista de usuarios
+      this.usuarios = data;
+      console.log('Lista de usuarios:', this.usuarios);
     }, error => {
       console.error('Error al cargar los usuarios:', error);
     });
   }
 
   crearUsuario() {
-    // Navegar a la página de creación de usuarios (si la implementas)
     this.router.navigate(['/usuarios-create']);
   }
 
   editarUsuario(id: string) {
-    // Navegar a la página de edición de usuarios (si la implementas)
     this.router.navigate([`/usuarios-edit/${id}`]);
   }
 

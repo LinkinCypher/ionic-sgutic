@@ -34,13 +34,24 @@ export class UsuariosCreatePage {
     toast.present();
   }
 
-  crearUsuario() {
-    this.usuariosService.crearUsuario(this.usuario).subscribe(() => {
-      this.mostrarToast('Usuario creado exitosamente');
-      this.router.navigate(['/usuarios-admin']); // Redirige a la lista de usuarios
-    }, error => {
-      this.mostrarToast('Error al crear el usuario', 'danger');
-      console.error('Error al crear el usuario:', error);
-    });
+  validarFormulario(): boolean {
+    if (!this.usuario.nombres || !this.usuario.apellidos || !this.usuario.usuario || !this.usuario.password || !this.usuario.rol) {
+      this.mostrarToast('Todos los campos son obligatorios', 'danger');
+      return false;
+    }
+    return true;
   }
+
+  crearUsuario() {
+    if (this.validarFormulario()) {
+      this.usuariosService.crearUsuario(this.usuario).subscribe(() => {
+        this.mostrarToast('Usuario creado exitosamente');
+        this.router.navigate(['/usuarios-admin']);
+      }, error => {
+        this.mostrarToast('El nombre de usuario ya existe', 'danger');
+        console.error('Error al crear el usuario:', error);
+      });
+    }
+  }
+  
 }
