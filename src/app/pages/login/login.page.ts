@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../servicios/auth.service';
+import { ToastController } from '@ionic/angular'; // Importar ToastController
 
 @Component({
   selector: 'app-login',
@@ -14,29 +15,41 @@ export class LoginPage {
   };
   loginError: string | null = null;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastController: ToastController // Inyectar ToastController
+  ) {}
 
-  login() {
+  async login() {
+    this.loginError = null; // Reiniciar cualquier error previo
     this.authService.login(this.credentials).subscribe(
-      () => {
-        // Verifica el rol del usuario después del login
+      async () => {
         const rol = this.authService.obtenerRolUsuario();
         if (rol === 1) {
-          // Redirige a la página home si es un administrador
           this.router.navigate(['/home']);
         } else {
-          // Redirige a una página específica según el rol del usuario
           this.router.navigate(['/home']); // Cambiar según la lógica de roles
         }
       },
-      (error) => {
+      async (error) => {
         console.error('Error en el login:', error);
         this.loginError = 'Usuario o contraseña incorrectos. Inténtalo de nuevo.';
+        await this.mostrarToast(this.loginError, 'danger'); // Mostrar un toast con el error
       }
     );
   }
 
   isAuthenticated(): boolean {
     return this.authService.isAuthenticated();
+  }
+
+  async mostrarToast(mensaje: string, color: string = 'success') {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2000,
+      color: color,
+    });
+    toast.present();
   }
 }
