@@ -16,7 +16,7 @@
         <h2 >{{ usuario.nombres }} {{ usuario.apellidos }} : 
           <span [ngClass]="getEstadoColor(usuario.estado)"> {{ getEstadoTexto(usuario.estado) }} </span>
         </h2>
-        <p>Rol: {{ getRolTexto(usuario.rol) }}</p>
+        <p>{{ usuario.usuario }} : {{ getRolTexto(usuario.rol) }}</p>
       </ion-label>
       <ion-button fill="outline" slot="end" (click)="editarUsuario(usuario._id)">Editar</ion-button>
     </ion-item>

@@ -19,6 +19,7 @@ export class UsuariosAdminPage implements OnInit {
   cargarUsuarios() {
     this.usuariosService.getUsuarios().subscribe(data => {
       this.usuarios = data; // Asigna los usuarios obtenidos al array
+      console.log('Lista de usuarios:', this.usuarios); // Log para mostrar la lista de usuarios
     }, error => {
       console.error('Error al cargar los usuarios:', error);
     });
