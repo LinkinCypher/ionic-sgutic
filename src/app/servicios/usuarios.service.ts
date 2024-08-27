@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuariosService {
-  private apiUrl = 'http://localhost:3000'; // URL de la API de NestJS
+  private apiUrl = 'http://localhost:3000/users'; // URL de la API de NestJS
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   // Método para obtener el token desde el almacenamiento local
   private getToken(): string {
@@ -17,8 +18,10 @@ export class UsuariosService {
 
   // Método para obtener los encabezados con el token JWT
   private getHeaders(): HttpHeaders {
+    const token = this.getToken();
+    console.log('Token JWT:', token); // Log para comprobar el token
     return new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
+      Authorization: `Bearer ${token}`
     });
   }
 
@@ -29,27 +32,41 @@ export class UsuariosService {
 
   // Método para obtener un usuario
   getUsuario(id: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/users/${id}`, { headers: this.getHeaders() });
-  }
-  
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authService.getToken()}`
+    });
+    return this.http.get<any>(`${this.apiUrl}/${id}`, { headers });
+  }  
 
   // Método para obtener todos los usuarios (solo para administradores)
   getUsuarios(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/users/all`, { headers: this.getHeaders() });
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authService.getToken()}`
+    });
+    return this.http.get<any[]>(`${this.apiUrl}/all`, { headers });
   }
 
   // Método para crear un nuevo usuario (solo para administradores)
   crearUsuario(usuario: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/users/create`, usuario, { headers: this.getHeaders() });
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authService.getToken()}`
+    });
+    return this.http.post<any>(`${this.apiUrl}/create`, usuario, { headers });
   }
 
   // Método para actualizar un usuario existente (solo para administradores)
   actualizarUsuario(id: string, usuario: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/users/update/${id}`, usuario, { headers: this.getHeaders() });
-  }
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authService.getToken()}`
+    });
+    return this.http.put<any>(`${this.apiUrl}/update/${id}`, usuario, { headers });
+  }   
 
   // Método para eliminar un usuario (borrado lógico, solo para administradores)
   eliminarUsuario(id: string): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/users/delete/${id}`, { headers: this.getHeaders() });
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authService.getToken()}`
+    });
+    return this.http.delete<any>(`${this.apiUrl}/delete/${id}`, { headers });
   }
 }
