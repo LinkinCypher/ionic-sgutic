@@ -29,16 +29,7 @@ export class UsuariosEditPage implements OnInit {
       });
     }
   }
-
-  // Propiedad calculada para invertir el valor del toggle
-  get estadoInvertido() {
-    return !this.usuario.estado; // Invertir el valor
-  }
-
-  set estadoInvertido(value: boolean) {
-    this.usuario.estado = !value; // Invertir el valor
-  }
-
+ 
   actualizarUsuario() {
     const id = this.route.snapshot.paramMap.get('id')!;
     this.usuariosService.actualizarUsuario(id, this.usuario).subscribe(() => {

@@ -19,6 +19,7 @@
         <p>{{ usuario.usuario }} : {{ getRolTexto(usuario.rol) }}</p>
       </ion-label>
       <ion-button fill="outline" slot="end" (click)="editarUsuario(usuario._id)">Editar</ion-button>
+      <ion-button fill="outline" color="danger" slot="end" (click)="eliminarUsuario(usuario._id)">Desactivar</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>

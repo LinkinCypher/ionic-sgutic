@@ -36,11 +36,13 @@ export class UsuariosAdminPage implements OnInit {
   }
 
   eliminarUsuario(id: string) {
-    this.usuariosService.eliminarUsuario(id).subscribe(() => {
-      this.cargarUsuarios(); // Recargar la lista de usuarios después de eliminar uno
-    }, error => {
-      console.error('Error al eliminar el usuario:', error);
-    });
+    if (confirm('¿Estás seguro de que deseas desactivar este usuario?')) {
+      this.usuariosService.eliminarUsuario(id).subscribe(() => {
+        this.cargarUsuarios(); // Recargar la lista de usuarios después de eliminar uno
+      }, error => {
+        console.error('Error al eliminar (desactivar) el usuario:', error);
+      });
+    }
   }
 
   getRolTexto(rol: number): string {
@@ -59,11 +61,11 @@ export class UsuariosAdminPage implements OnInit {
   }
 
   getEstadoTexto(estado: boolean): string {
-    return estado ? 'Desactivado' : 'Activo';
+    return estado ? 'Activo' : 'Desactivado';
   }
   
   getEstadoColor(estado: boolean): string {
-    return estado ? 'danger' : 'success'; // 'success' para verde, 'danger' para rojo
+    return estado ? 'success' : 'danger'; // 'success' para verde, 'danger' para rojo
   }
   
   
