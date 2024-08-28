@@ -1,3 +1,8 @@
+ion-toolbar {
+    --background: #0054e9; /* Cambia el color de fondo del toolbar */
+    --color: #ffffff; /* Cambia el color del texto en el toolbar */
+}
+
 .success {
     color: green;
 }
@@ -11,8 +16,22 @@ ion-grid {
 }
 
 ion-row {
+    
+    color: #333; /* Cambia el color del texto dentro de las filas */
     border-bottom: 1px solid #ddd; /* Línea separadora entre filas */
 }
+
+ion-row:nth-child(even) {
+    background-color: #e0e0e0; /* Cambia el color de fondo de las filas pares */
+}
+
+ion-row.header-row {
+    background-color: #000000; /* Color de fondo del encabezado */
+    color: white; /* Color del texto del encabezado */
+    font-weight: bold; /* Hacer el texto del encabezado en negrita */
+    text-align: center; /* Centrar el texto del encabezado */
+  }
+  
 
 ion-col {
     border-right: 1px solid #ddd; /* Línea separadora entre columnas */
@@ -48,4 +67,4 @@ ion-header {
   
 .search-container ion-searchbar {
     flex-grow: 1; /* La barra de búsqueda ocupará el espacio restante */
-}  
+}
