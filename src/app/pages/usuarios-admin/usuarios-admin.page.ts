@@ -14,6 +14,7 @@ export class UsuariosAdminPage implements OnInit {
   nombreUsuario: string | null = null;
   sortColumn: string = 'apellidos'; // Columna por defecto para ordenar
   sortDirection: boolean = true; // true para ascendente, false para descendente
+  searchTerm: string = ''; // Término de búsqueda
 
   constructor(
     private usuariosService: UsuariosService,
@@ -46,7 +47,6 @@ export class UsuariosAdminPage implements OnInit {
       let aValue = a[column];
       let bValue = b[column];
 
-      // Si la columna es 'rol' o 'estado', se deben usar los métodos personalizados para obtener el texto adecuado
       if (column === 'rol') {
         aValue = this.getRolTexto(a.rol);
         bValue = this.getRolTexto(b.rol);
@@ -67,12 +67,12 @@ export class UsuariosAdminPage implements OnInit {
 
   toggleSort(column: string) {
     if (this.sortColumn === column) {
-      this.sortDirection = !this.sortDirection; // Cambia la dirección si ya está ordenando por esta columna
+      this.sortDirection = !this.sortDirection;
     } else {
-      this.sortColumn = column; // Cambia la columna de orden
-      this.sortDirection = true; // Reinicia la dirección a ascendente
+      this.sortColumn = column;
+      this.sortDirection = true;
     }
-    this.usuarios = this.sortUsuarios(this.usuarios, this.sortColumn, this.sortDirection); // Ordena los usuarios
+    this.usuarios = this.sortUsuarios(this.usuarios, this.sortColumn, this.sortDirection);
   }
 
   crearUsuario() {
@@ -92,6 +92,20 @@ export class UsuariosAdminPage implements OnInit {
       });
     }
   }
+
+  buscarUsuarios() {
+    console.log('Término de búsqueda:', this.searchTerm); // Verifica el término de búsqueda
+    if (this.searchTerm.trim() === '') {
+      this.cargarUsuarios(); // Si no hay término de búsqueda, cargar todos los usuarios
+    } else {
+      this.usuariosService.buscarUsuarios(this.searchTerm).subscribe(data => {
+        this.usuarios = this.sortUsuarios(data, this.sortColumn, this.sortDirection);
+        console.log('Usuarios filtrados:', this.usuarios); // Verifica los usuarios filtrados
+      }, error => {
+        console.error('Error al buscar usuarios:', error);
+      });
+    }
+  }   
 
   getRolTexto(rol: number): string {
     switch (rol) {
@@ -113,10 +127,9 @@ export class UsuariosAdminPage implements OnInit {
   }
   
   getEstadoColor(estado: boolean): string {
-    return estado ? 'success' : 'danger'; // Verde para activo, rojo para inactivo
+    return estado ? 'success' : 'danger';
   }  
   
-  // Método para formatear la fecha, retorna vacío si es null o undefined
   formatFecha(fecha: string | null): string {
     if (!fecha) {
       return '';

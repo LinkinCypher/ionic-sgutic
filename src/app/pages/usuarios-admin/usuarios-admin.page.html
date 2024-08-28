@@ -9,11 +9,14 @@
 
 <ion-content>
   <ion-card>
-    <ion-button (click)="crearUsuario()">
-      <ion-icon name="people"></ion-icon>
-      Crear Usuario
-    </ion-button>
-  </ion-card>
+    <div class="search-container">
+      <ion-button (click)="crearUsuario()" expand="block" class="single-line-button">
+        <ion-icon name="people"></ion-icon>
+        Crear Usuario
+      </ion-button>
+      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="buscarUsuarios()" placeholder="Buscar por nombre o usuario..."></ion-searchbar>
+    </div>
+  </ion-card>   
 
   <ion-card>
     <ion-grid>

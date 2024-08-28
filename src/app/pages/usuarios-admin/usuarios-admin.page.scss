@@ -34,3 +34,18 @@ ion-row:last-child {
 ion-header {
     margin-bottom: 10px; /* Espaciado entre el header y el contenido */
 }
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+  
+.single-line-button {
+    white-space: nowrap; /* Asegura que el texto no se divida en dos líneas */
+    flex-shrink: 0; /* Evita que el botón se reduzca */
+    margin-right: 10px; /* Espacio entre el botón y la barra de búsqueda */
+}
+  
+.search-container ion-searchbar {
+    flex-grow: 1; /* La barra de búsqueda ocupará el espacio restante */
+}  

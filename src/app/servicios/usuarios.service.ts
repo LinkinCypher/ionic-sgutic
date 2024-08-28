@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 export class UsuariosService {
   private apiUrl = 'http://localhost:3000/users'; // URL de la API de NestJS
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   // Método para obtener el token desde el almacenamiento local
   private getToken(): string {
@@ -69,4 +69,13 @@ export class UsuariosService {
     });
     return this.http.delete<any>(`${this.apiUrl}/delete/${id}`, { headers });
   }
+
+  // Método para buscar usuarios por nombre, apellido o usuario
+  buscarUsuarios(term: string): Observable<any[]> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.authService.getToken()}` // Asegúrate de usar el token de authService
+    });
+    return this.http.get<any[]>(`${this.apiUrl}/search?term=${term}`, { headers });
+  }
+
 }
