@@ -69,5 +69,9 @@ export class UsuariosCreatePage {
       });
     }
   }
+
+  regresar() {
+    this.router.navigate(['/usuarios-admin']); // Redirige a la página de administración de usuarios
+  }
   
 }
