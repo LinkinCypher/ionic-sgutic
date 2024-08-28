@@ -35,3 +35,11 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+ion-button {
+    text-transform: none; /* Elimina la transformación a mayúsculas */
+}
+
+ion-badge {
+    font-weight: normal; /* Cambia el texto a peso normal */
+}

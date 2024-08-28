@@ -8,26 +8,29 @@
 
 ion-grid {
     border: 1px solid #ddd; /* Borde alrededor de toda la tabla */
-  }
-  
-  ion-row {
+}
+
+ion-row {
     border-bottom: 1px solid #ddd; /* Línea separadora entre filas */
-  }
-  
-  ion-col {
+}
+
+ion-col {
     border-right: 1px solid #ddd; /* Línea separadora entre columnas */
     padding: 10px; /* Espaciado interno para mejorar la apariencia */
-  }
-  
-  ion-col:last-child {
+    text-align: center; /* Centra el texto horizontalmente */
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+    justify-content: center; /* Alinea horizontalmente */
+}
+
+ion-col:last-child {
     border-right: none; /* Quitar el borde derecho de la última columna */
-  }
-  
-  ion-row:last-child {
+}
+
+ion-row:last-child {
     border-bottom: none; /* Quitar la línea inferior de la última fila */
-  }
-  
-  ion-header {
+}
+
+ion-header {
     margin-bottom: 10px; /* Espaciado entre el header y el contenido */
-  }
-  
+}
