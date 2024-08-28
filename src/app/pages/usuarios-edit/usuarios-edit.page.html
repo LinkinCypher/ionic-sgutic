@@ -4,6 +4,11 @@
       <ion-menu-button></ion-menu-button> <!-- Abre el menú -->
     </ion-buttons>
     <ion-title>Editar Usuario</ion-title>
+    <ion-buttons slot="end"> <!-- Botón de regresar en la derecha -->
+      <ion-button (click)="regresar()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
