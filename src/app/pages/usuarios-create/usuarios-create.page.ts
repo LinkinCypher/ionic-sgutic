@@ -25,6 +25,22 @@ export class UsuariosCreatePage {
     private toastController: ToastController // Inyectar ToastController
   ) {}
 
+  ngOnInit() {
+    this.resetForm(); // Restablecer el formulario al cargar la página
+  }
+
+  resetForm() {
+    this.usuario = {
+      nombres: '',
+      apellidos: '',
+      usuario: '',
+      password: '',
+      rol: 0,
+      estado: true,
+      fecha_nacimiento: ''
+    };
+  }
+
   async mostrarToast(mensaje: string, color: string = 'success') {
     const toast = await this.toastController.create({
       message: mensaje,
