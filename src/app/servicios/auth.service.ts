@@ -74,4 +74,14 @@ export class AuthService {
   getUserRole(): Observable<number> {
     return this.userRole.asObservable();
   }
+
+  getNombreUsuario(): string | null {
+    const token = this.getToken();
+    if (token) {
+      const decodedToken = this.jwtHelper.decodeToken(token);
+      return decodedToken.username || null; // Asegúrate de que "username" es el campo correcto
+    }
+    return null;
+  }
+  
 }

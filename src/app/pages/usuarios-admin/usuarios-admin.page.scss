@@ -6,22 +6,28 @@
     color: red;
 }
 
-ion-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+ion-grid {
+    border: 1px solid #ddd; /* Borde alrededor de toda la tabla */
+  }
   
-    .button-group {
-      display: flex;
-      flex-direction: column; /* Coloca los botones en una columna (uno sobre el otro) */
-      width: 20%; /* Ajusta el ancho del contenedor al 20% */
-      max-width: 50px; /* Establece un ancho máximo si es necesario */
-      min-width: 50px; /* Establece un ancho mínimo si es necesario */
-      margin-left: 5px; /* Espacio entre el contenido y los botones */
-    }
+  ion-row {
+    border-bottom: 1px solid #ddd; /* Línea separadora entre filas */
+  }
   
-    ion-button {
-      margin-bottom: 5px; /* Añade un margen entre los botones */
-    }
+  ion-col {
+    border-right: 1px solid #ddd; /* Línea separadora entre columnas */
+    padding: 10px; /* Espaciado interno para mejorar la apariencia */
+  }
+  
+  ion-col:last-child {
+    border-right: none; /* Quitar el borde derecho de la última columna */
+  }
+  
+  ion-row:last-child {
+    border-bottom: none; /* Quitar la línea inferior de la última fila */
+  }
+  
+  ion-header {
+    margin-bottom: 10px; /* Espaciado entre el header y el contenido */
   }
   

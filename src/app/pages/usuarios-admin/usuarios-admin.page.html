@@ -10,22 +10,37 @@
 <ion-content>
   <ion-button expand="full" (click)="crearUsuario()">Crear Nuevo Usuario</ion-button>
 
-  <ion-list>
-    <ion-item *ngFor="let usuario of usuarios">
-      <ion-label>
-        <h2>{{ usuario.nombres }} {{ usuario.apellidos }} 
-          <span [ngClass]="getEstadoColor(usuario.estado)"> {{ getEstadoTexto(usuario.estado) }} </span>
-        </h2>
-        <p>{{ usuario.usuario }} es {{ getRolTexto(usuario.rol) }}</p>
-      </ion-label>
-      <div class="button-group" slot="end">
-        <ion-button fill="outline" (click)="editarUsuario(usuario._id)">
-          <ion-icon name="create"></ion-icon>
+  <ion-grid>
+    <!-- Encabezados -->
+    <ion-row class="ion-text-center">
+      <ion-col size="3" (click)="toggleSort('apellidos')"><strong>Apellidos y Nombres</strong></ion-col>
+      <ion-col size="2" (click)="toggleSort('usuario')"><strong>Usuario</strong></ion-col>
+      <ion-col size="2" (click)="toggleSort('rol')"><strong>Rol</strong></ion-col>
+      <ion-col size="2" (click)="toggleSort('estado')"><strong>Estado</strong></ion-col>
+      <ion-col size="3"><strong>Acciones</strong></ion-col>
+    </ion-row>
+
+    <!-- Filas de Usuarios -->
+    <ion-row *ngFor="let usuario of usuarios">
+      <ion-col size="3">{{ usuario.apellidos }} {{ usuario.nombres }}</ion-col>
+      <ion-col size="2" class="ion-text-center">{{ usuario.usuario }}</ion-col>
+      <ion-col size="2" class="ion-text-center">{{ getRolTexto(usuario.rol) }}</ion-col>
+      
+      <ion-col size="2" class="ion-text-center">
+        <ion-badge [color]="getEstadoColor(usuario.estado)">
+          {{ getEstadoTexto(usuario.estado) }}
+        </ion-badge>
+      </ion-col>
+      
+      <ion-col size="3" class="ion-text-center">
+        <ion-button color="primary" size="small" (click)="editarUsuario(usuario._id)">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
         </ion-button>
-        <ion-button fill="outline" color="danger" (click)="eliminarUsuario(usuario._id)">
-          <ion-icon name="close"></ion-icon>
+        <ion-button color="danger" size="small" (click)="eliminarUsuario(usuario._id)">
+          <ion-icon slot="icon-only" name="close-circle"></ion-icon>
         </ion-button>
-      </div>
-    </ion-item>
-  </ion-list>
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -10,6 +10,7 @@ import { MenuController } from '@ionic/angular';
 })
 export class AppComponent implements OnInit {
   esAdmin = false;
+  nombreUsuario: string | null = null;  // Variable para almacenar el nombre del usuario
 
   constructor(
     private authService: AuthService, 
@@ -23,8 +24,12 @@ export class AppComponent implements OnInit {
         this.authService.getUserRole().subscribe(rol => {
           this.esAdmin = rol === 1;
         });
+
+        // Obtener el nombre del usuario logueado
+        this.nombreUsuario = this.authService.getNombreUsuario();
       } else {
         this.esAdmin = false;
+        this.nombreUsuario = null;
       }
     });
   }
