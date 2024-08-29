@@ -4,6 +4,11 @@
       <ion-menu-button></ion-menu-button> <!-- Abre el menú -->
     </ion-buttons>
     <ion-title>Administrar Usuarios</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="recargarPagina()">
+        <ion-icon slot="icon-only" class="fa fa-refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

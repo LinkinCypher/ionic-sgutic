@@ -33,6 +33,10 @@ export class UsuariosAdminPage implements OnInit {
     this.nombreUsuario = this.authService.getNombreUsuario(); // Obtener el nombre del usuario
   }
 
+  recargarPagina() {
+    this.cargarUsuarios(); // Vuelve a cargar los usuarios desde el servidor
+  }
+
   cargarUsuarios() {
     this.usuariosService.getUsuarios().subscribe(data => {
       this.usuarios = this.sortUsuarios(data, this.sortColumn, this.sortDirection);
