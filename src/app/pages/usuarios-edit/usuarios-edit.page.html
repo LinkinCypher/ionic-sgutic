@@ -12,45 +12,106 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-item>
-    <ion-label position="floating">Nombres</ion-label>
-    <ion-input [(ngModel)]="usuario.nombres" type="text" required></ion-input>
-  </ion-item>
+<ion-content class="ion-padding">
+  <ion-card>
+    
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-input 
+              label="Nombre" 
+              label-placement="floating" 
+              fill="outline" 
+              placeholder="Nombre"
+              name="nombres"
+              [(ngModel)]="usuario.nombres">
+            </ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-input 
+              label="Apellido" 
+              label-placement="floating" 
+              fill="outline" 
+              placeholder="Apellido"
+              name="apellidos"
+              [(ngModel)]="usuario.apellidos">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input 
+              label="Usuario" 
+              label-placement="floating" 
+              fill="outline" 
+              placeholder="Usuario"
+              name="usuario"
+              [(ngModel)]="usuario.usuario">
+            </ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-input 
+              label="Contraseña" 
+              label-placement="floating" 
+              fill="outline"
+              placeholder="******"
+              name="password"
+              [(ngModel)]="usuario.password">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-select
+              interface="popover"
+              label="Rol" 
+              label-placement="floating" 
+              fill="outline"
+              placeholder="Rol"
+              name="rol"
+              [(ngModel)]="usuario.rol">
+              <ion-select-option [value]="2">Gestor</ion-select-option>
+              <ion-select-option [value]="3">Técnico</ion-select-option>
+              <ion-select-option [value]="4">Usuario</ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-toggle
+                [enableOnOffLabels]="true"
+                [(ngModel)]="usuario.estado">
+                <ion-label class="text-grey">Estado:</ion-label>
+              </ion-toggle>
+            </ion-item>
+          </ion-col>          
+        </ion-row>
 
-  <ion-item>
-    <ion-label position="floating">Apellidos</ion-label>
-    <ion-input [(ngModel)]="usuario.apellidos" type="text" required></ion-input>
-  </ion-item>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating" class="text-grey">Fecha de Nacimiento</ion-label>
+              <ion-datetime 
+                [(ngModel)]="usuario.fecha_nacimiento" 
+                presentation="date"
+                placeholder="Seleccione la fecha"
+                displayFormat="DD/MM/YYYY">
+              </ion-datetime>
+            </ion-item>
+          </ion-col>
+        </ion-row>
 
-  <ion-item>
-    <ion-label position="floating">Usuario</ion-label>
-    <ion-input [(ngModel)]="usuario.usuario" type="text" required></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Contraseña</ion-label>
-    <ion-input [(ngModel)]="usuario.password" type="password" minlength="6"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Rol</ion-label>
-    <ion-select [(ngModel)]="usuario.rol" name="rol" required>
-      <ion-select-option [value]="2">Gestor</ion-select-option>
-      <ion-select-option [value]="3">Técnico</ion-select-option>
-      <ion-select-option [value]="4">Usuario</ion-select-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Estado</ion-label>
-    <ion-toggle [(ngModel)]="usuario.estado"></ion-toggle>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Fecha de Nacimiento</ion-label>
-    <ion-datetime [(ngModel)]="usuario.fecha_nacimiento"></ion-datetime>
-  </ion-item>
-
-  <ion-button expand="full" (click)="actualizarUsuario()">Actualizar Usuario</ion-button>
+      </ion-grid>
+      <div class="ion-text-center">
+        <ion-button (click)="actualizarUsuario()">Actualizar Usuario</ion-button>
+      </div>
+    
+  </ion-card>
 </ion-content>
+
+
+
+
+
+
+
+
