@@ -69,9 +69,10 @@
           <ion-row>
             <ion-col>
               <ion-select
+                interface="popover"
                 label="Rol" 
                 label-placement="floating" 
-                fill="outline" 
+                fill="outline"
                 placeholder="Rol"
                 name="rol"
                 [(ngModel)]="usuario.rol"
@@ -81,24 +82,23 @@
                 <ion-select-option [value]="4">Usuario</ion-select-option>
               </ion-select>
             </ion-col>
-          </ion-row>
-
-          <ion-row>
             <ion-col>
-              <ion-label position="floating">Fecha de Nacimiento</ion-label>
-              <ion-item>
-                <ion-datetime 
-                  presentation="date" 
-                  [preferWheel]="true" 
-                  [(ngModel)]="usuario.fecha_nacimiento"
-                  name="fecha_nacimiento">
-                </ion-datetime>
-              </ion-item>
+              <ion-input
+                label="Fecha de nacimiento"
+                label-placement="floating"
+                fill="outline"
+                placeholder="Fecha de nacimiento"
+                [(ngModel)]="usuario.fecha_nacimiento"
+                name="fecha_nacimiento"
+                type="date">
+              </ion-input>
             </ion-col>
           </ion-row>
 
         </ion-grid>
-        <ion-button expand="block" type="submit" class="ion-margin-top">Crear Usuario</ion-button>
+        <div class="ion-text-center">
+          <ion-button type="submit" class="ion-margin-top">Crear Usuario</ion-button>
+        </div>
       </form>
     </ion-card-content>
   </ion-card>
