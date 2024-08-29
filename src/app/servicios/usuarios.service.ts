@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuariosService {
-  private apiUrl = 'http://localhost:3000/users'; // URL de la API de NestJS
+  private apiUrl = `${environment.apiUrl}/users`; // URL de la API de NestJS
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
