@@ -3,8 +3,50 @@ ion-toolbar {
     --color: #ffffff; /* Cambia el color del texto en el toolbar */
 }
 
+ion-content {
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+}
+
+.scroll-container {
+    overflow-x: auto; /* Habilita el scroll horizontal */
+    white-space: nowrap; /* Asegura que los elementos dentro del contenedor no se envuelvan */
+    scrollbar-width: thick; /* Hace que el scroll sea más grueso en Firefox */
+}
+
+.scroll-container::-webkit-scrollbar {
+    height: 12px; /* Grosor del scrollbar en navegadores WebKit (Chrome, Safari) */
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color del scroll */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color de fondo del scroll */
+}
+
 ion-grid {
+    min-width: 700px; /* Asegura que el grid sea lo suficientemente ancho para el scroll horizontal */
     border: 1px solid #ddd; /* Borde alrededor de toda la tabla */
+    overflow-x: auto; /* Asegura que el ion-grid tenga scroll si es necesario */
+    scrollbar-width: thick; /* Hace que el scroll sea más grueso en Firefox */
+}
+
+ion-grid::-webkit-scrollbar {
+    height: 12px; /* Grosor del scrollbar en navegadores WebKit (Chrome, Safari) */
+}
+
+ion-grid::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color del scroll */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+ion-grid::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color de fondo del scroll */
 }
 
 ion-row {
@@ -18,9 +60,9 @@ ion-row.header-row {
     color: white; /* Color del texto del encabezado */
     font-weight: bold; /* Texto del encabezado en negrita */
     text-align: center; /* Centrar el texto */
+    font-size: 0.9rem; /* Tamaño del texto del encabezado */
 }
   
-
 ion-col {
     border-right: 1px solid #ddd; /* Línea separadora entre columnas */
     padding: 10px; /* Espaciado interno para mejorar la apariencia */
@@ -28,6 +70,8 @@ ion-col {
     display: flex;
     align-items: center; /* Alinea verticalmente */
     justify-content: center; /* Alinea horizontalmente */
+    word-wrap: break-word; /* Permite que el texto se divida en palabras si es necesario */
+    white-space: normal; /* Permite que el texto envuelva a la siguiente línea */
 }
 
 ion-col:last-child {

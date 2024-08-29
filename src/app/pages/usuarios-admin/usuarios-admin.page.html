@@ -24,38 +24,40 @@
   </ion-card>   
 
   <ion-card>
-    <ion-grid>
-      <!-- Encabezados -->
-      <ion-row class="header-row">
-        <ion-col size="3" (click)="toggleSort('apellidos')"><strong>Apellidos y Nombres</strong></ion-col>
-        <ion-col size="2" (click)="toggleSort('usuario')"><strong>Usuario</strong></ion-col>
-        <ion-col size="3" (click)="toggleSort('rol')"><strong>Rol</strong></ion-col>
-        <ion-col size="2" (click)="toggleSort('estado')"><strong>Estado</strong></ion-col>
-        <ion-col size="2"><strong>Acciones</strong></ion-col>
-      </ion-row>
+    <div class="scroll-container">
+      <ion-grid>
+        <!-- Encabezados -->
+        <ion-row class="header-row">
+          <ion-col size="4" (click)="toggleSort('apellidos')"><strong>Apellidos y Nombres</strong></ion-col>
+          <ion-col size="2" (click)="toggleSort('usuario')"><strong>Usuario</strong></ion-col>
+          <ion-col size="2" (click)="toggleSort('rol')"><strong>Rol</strong></ion-col>
+          <ion-col size="2" (click)="toggleSort('estado')"><strong>Estado</strong></ion-col>
+          <ion-col size="2"><strong>Acciones</strong></ion-col>
+        </ion-row>
 
-      <!-- Filas de Usuarios -->
-      <ion-row *ngFor="let usuario of usuarios">
-        <ion-col size="3">{{ usuario.apellidos }} {{ usuario.nombres }}</ion-col>
-        <ion-col size="2">{{ usuario.usuario }}</ion-col>
-        <ion-col size="3">{{ getRolTexto(usuario.rol) }}</ion-col>
-        
-        <ion-col size="2">
-          <ion-badge [color]="getEstadoColor(usuario.estado)">
-            {{ getEstadoTexto(usuario.estado) }}
-          </ion-badge>
-        </ion-col>
-        
-        <ion-col size="2">
-          <ion-button color="secondary" size="small" (click)="editarUsuario(usuario._id)">
-            <ion-icon slot="icon-only" class="fa fa-pencil"></ion-icon>
-          </ion-button>
-          <ion-button color="danger" size="small" (click)="eliminarUsuario(usuario._id)">
-            <ion-icon slot="icon-only" class="fa fa-ban"></ion-icon>
-          </ion-button>
-        </ion-col>
-        
-      </ion-row>
-    </ion-grid>
+        <!-- Filas de Usuarios -->
+        <ion-row *ngFor="let usuario of usuarios">
+          <ion-col size="4">{{ usuario.apellidos }} {{ usuario.nombres }}</ion-col>
+          <ion-col size="2">{{ usuario.usuario }}</ion-col>
+          <ion-col size="2">{{ getRolTexto(usuario.rol) }}</ion-col>
+          
+          <ion-col size="2">
+            <ion-badge [color]="getEstadoColor(usuario.estado)">
+              {{ getEstadoTexto(usuario.estado) }}
+            </ion-badge>
+          </ion-col>
+          
+          <ion-col size="2">
+            <ion-button color="secondary" size="small" (click)="editarUsuario(usuario._id)">
+              <ion-icon slot="icon-only" class="fa fa-pencil"></ion-icon>
+            </ion-button>
+            <ion-button color="danger" size="small" (click)="eliminarUsuario(usuario._id)">
+              <ion-icon slot="icon-only" class="fa fa-ban"></ion-icon>
+            </ion-button>
+          </ion-col>
+          
+        </ion-row>
+      </ion-grid>
+    </div>
   </ion-card>
 </ion-content>
