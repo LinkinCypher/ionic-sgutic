@@ -5,8 +5,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'; // Importa el módulo HTTP
-
 import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt'; // Importa JwtModule y JwtHelperService
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +20,7 @@ import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt'; /
         tokenGetter: () => {
           return localStorage.getItem('access_token');
         },
-        allowedDomains: ['localhost:3000'], // Asegúrate de que esto coincida con tu dominio de la API
+        allowedDomains: [new URL(environment.apiUrl).hostname], // Usa el dominio de la URL de la API desde environment
       },
     }),
   ],

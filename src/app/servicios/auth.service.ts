@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/auth'; // URL de la API
+  private apiUrl = `${environment.apiUrl}/auth`; // URL de la API
   private authStatus = new BehaviorSubject<boolean>(this.isAuthenticated());
   private userRole = new BehaviorSubject<number>(this.obtenerRolUsuario());
 
