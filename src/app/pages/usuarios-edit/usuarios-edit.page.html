@@ -6,7 +6,7 @@
     <ion-title>Editar Usuario</ion-title>
     <ion-buttons slot="end"> <!-- Botón de regresar en la derecha -->
       <ion-button (click)="regresar()">
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        <ion-icon slot="icon-only" class="fas fa-arrow-left"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -102,7 +102,7 @@
 
       </ion-grid>
       <div class="ion-text-center">
-        <ion-button (click)="actualizarUsuario()">Actualizar Usuario</ion-button>
+        <ion-button type="submit" (click)="actualizarUsuario()" shape="round" expand="full" color="secondary">Actualizar Usuario</ion-button>
       </div>
     
   </ion-card>

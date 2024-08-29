@@ -6,7 +6,7 @@
     <ion-title>Crear Nuevo Usuario</ion-title>
     <ion-buttons slot="end"> <!-- Botón de regresar en la derecha -->
       <ion-button (click)="regresar()">
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        <ion-icon slot="icon-only" class="fas fa-arrow-left"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -97,8 +97,9 @@
 
         </ion-grid>
         <div class="ion-text-center">
-          <ion-button type="submit" class="ion-margin-top">Crear Usuario</ion-button>
+          <ion-button type="submit" shape="round" expand="full" color="secondary">Crear Usuario</ion-button>
         </div>
+
       </form>
     </ion-card-content>
   </ion-card>
