@@ -14,7 +14,7 @@
 
 <ion-content class="ion-padding">
   <ion-card>
-    <form #userForm="ngForm">
+    
       <ion-grid>
         <ion-row>
           <ion-col>
@@ -75,8 +75,7 @@
               fill="outline"
               placeholder="Rol"
               name="rol"
-              [(ngModel)]="usuario.rol"
-              required>
+              [(ngModel)]="usuario.rol">
               <ion-select-option [value]="2">Gestor</ion-select-option>
               <ion-select-option [value]="3">Técnico</ion-select-option>
               <ion-select-option [value]="4">Usuario</ion-select-option>
@@ -111,14 +110,14 @@
       <div class="ion-text-center">
         <ion-button 
           type="submit" 
-          [disabled]="userForm.invalid" 
           (click)="actualizarUsuario()" 
           shape="round" 
           expand="full" 
-          color="secondary">
+          color="secondary"
+          [disabled]="!usuario.nombres || !usuario.apellidos || !usuario.usuario">
           Actualizar Usuario
         </ion-button>
-      </div>
-    </form>
+      </div>      
+    
   </ion-card>
 </ion-content>

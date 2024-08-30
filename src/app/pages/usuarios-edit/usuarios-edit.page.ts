@@ -33,7 +33,7 @@ export class UsuariosEditPage implements OnInit {
  
   actualizarUsuario() {
     // Verifica si los campos obligatorios están vacíos
-    if (!this.usuario.nombres || !this.usuario.apellidos || !this.usuario.usuario || !this.usuario.rol) {
+    if (!this.usuario.nombres || !this.usuario.apellidos || !this.usuario.usuario) {
       this.mostrarToast('Por favor, complete todos los campos obligatorios.', 'danger');
       return;
     }
@@ -52,8 +52,8 @@ export class UsuariosEditPage implements OnInit {
       this.mostrarToast('Error al actualizar el usuario', 'danger');
       console.error('Error al actualizar el usuario:', error);
     });
-  }
-  
+  } 
+
   async mostrarToast(mensaje: string, color: string = 'success') {
     const toast = await this.toastController.create({
       message: mensaje,
