@@ -14,7 +14,7 @@
 
 <ion-content class="ion-padding">
   <ion-card>
-    
+    <form #userForm="ngForm">
       <ion-grid>
         <ion-row>
           <ion-col>
@@ -24,7 +24,9 @@
               fill="outline" 
               placeholder="Nombre"
               name="nombres"
-              [(ngModel)]="usuario.nombres">
+              [(ngModel)]="usuario.nombres"
+              required
+              minlength="1">
             </ion-input>
           </ion-col>
           <ion-col>
@@ -34,7 +36,9 @@
               fill="outline" 
               placeholder="Apellido"
               name="apellidos"
-              [(ngModel)]="usuario.apellidos">
+              [(ngModel)]="usuario.apellidos"
+              required
+              minlength="1">
             </ion-input>
           </ion-col>
         </ion-row>
@@ -46,7 +50,9 @@
               fill="outline" 
               placeholder="Usuario"
               name="usuario"
-              [(ngModel)]="usuario.usuario">
+              [(ngModel)]="usuario.usuario"
+              required
+              minlength="1">
             </ion-input>
           </ion-col>
           <ion-col>
@@ -69,7 +75,8 @@
               fill="outline"
               placeholder="Rol"
               name="rol"
-              [(ngModel)]="usuario.rol">
+              [(ngModel)]="usuario.rol"
+              required>
               <ion-select-option [value]="2">Gestor</ion-select-option>
               <ion-select-option [value]="3">Técnico</ion-select-option>
               <ion-select-option [value]="4">Usuario</ion-select-option>
@@ -102,16 +109,16 @@
 
       </ion-grid>
       <div class="ion-text-center">
-        <ion-button type="submit" (click)="actualizarUsuario()" shape="round" expand="full" color="secondary">Actualizar Usuario</ion-button>
+        <ion-button 
+          type="submit" 
+          [disabled]="userForm.invalid" 
+          (click)="actualizarUsuario()" 
+          shape="round" 
+          expand="full" 
+          color="secondary">
+          Actualizar Usuario
+        </ion-button>
       </div>
-    
+    </form>
   </ion-card>
 </ion-content>
-
-
-
-
-
-
-
-

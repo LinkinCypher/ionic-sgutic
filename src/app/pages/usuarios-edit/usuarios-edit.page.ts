@@ -32,11 +32,19 @@ export class UsuariosEditPage implements OnInit {
   }
  
   actualizarUsuario() {
+    // Verifica si los campos obligatorios están vacíos
+    if (!this.usuario.nombres || !this.usuario.apellidos || !this.usuario.usuario || !this.usuario.rol) {
+      this.mostrarToast('Por favor, complete todos los campos obligatorios.', 'danger');
+      return;
+    }
+  
     const id = this.route.snapshot.paramMap.get('id')!;
+  
     // Si el campo de contraseña está vacío, se elimina el campo antes de enviar la solicitud
     if (!this.usuario.password) {
       delete this.usuario.password;
     }
+  
     this.usuariosService.actualizarUsuario(id, this.usuario).subscribe(() => {
       this.mostrarToast('Usuario actualizado exitosamente');
       this.router.navigate(['/usuarios-admin']);
@@ -45,7 +53,7 @@ export class UsuariosEditPage implements OnInit {
       console.error('Error al actualizar el usuario:', error);
     });
   }
-
+  
   async mostrarToast(mensaje: string, color: string = 'success') {
     const toast = await this.toastController.create({
       message: mensaje,
