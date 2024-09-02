@@ -13,10 +13,18 @@ Iniciar servicio
 ionic serve
 ```
 
-Compilar
+Compilar local (environments.ts)
+```bash
+ionic build
+```
+
+Compilar local (environments.prod.ts)
 ```bash
 ionic build --prod
 ```
 
-En Xampp copiar el interior de la carpera www creada por la compilacion 
+
+## EJEMPLO DE IMPLEMENTACIÓN EN XAMPP
+La compilación crea la carpeta: www
+Copiar el contenido de www
 Pegar en C:\xampp\htdocs
