@@ -72,6 +72,7 @@ ion-col {
     justify-content: center; /* Alinea horizontalmente */
     word-wrap: break-word; /* Permite que el texto se divida en palabras si es necesario */
     white-space: normal; /* Permite que el texto envuelva a la siguiente línea */
+    height: 35px; /* Establece un alto */
 }
 
 ion-col:last-child {

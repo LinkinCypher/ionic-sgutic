@@ -28,10 +28,10 @@
       <ion-grid>
         <!-- Encabezados -->
         <ion-row class="header-row">
-          <ion-col size="4" (click)="toggleSort('apellidos')"><strong>Apellidos y Nombres</strong></ion-col>
-          <ion-col size="2" (click)="toggleSort('usuario')"><strong>Usuario</strong></ion-col>
-          <ion-col size="2" (click)="toggleSort('rol')"><strong>Rol</strong></ion-col>
-          <ion-col size="2" (click)="toggleSort('estado')"><strong>Estado</strong></ion-col>
+          <ion-col size="4" (click)="toggleSort('apellidos')"><strong>Apellidos y Nombres <i class="fa fa-sort"></i></strong></ion-col>
+          <ion-col size="2" (click)="toggleSort('usuario')"><strong>Usuario <i class="fa fa-sort"></i></strong></ion-col>
+          <ion-col size="2" (click)="toggleSort('rol')"><strong>Rol <i class="fa fa-sort"></i></strong></ion-col>
+          <ion-col size="2" (click)="toggleSort('estado')"><strong>Estado <i class="fa fa-sort"></i></strong></ion-col>
           <ion-col size="2"><strong>Acciones</strong></ion-col>
         </ion-row>
 
@@ -48,11 +48,11 @@
           </ion-col>
           
           <ion-col size="2">
-            <ion-button color="secondary" size="small" (click)="editarUsuario(usuario._id)">
-              <ion-icon slot="icon-only" class="fa fa-pencil"></ion-icon>
+            <ion-button color="white" size="small" (click)="editarUsuario(usuario._id)">
+              <ion-icon slot="icon-only" class="fa fa-pencil" color="secondary"></ion-icon>
             </ion-button>
-            <ion-button color="danger" size="small" (click)="eliminarUsuario(usuario._id)">
-              <ion-icon slot="icon-only" class="fa fa-ban"></ion-icon>
+            <ion-button color="white"size="small" (click)="eliminarUsuario(usuario._id)">
+              <ion-icon slot="icon-only" class="fa fa-ban" color="danger"></ion-icon>
             </ion-button>
           </ion-col>
           
