@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuariosService } from '../../servicios/usuarios.service';
+import { UsuariosService } from '../../../servicios/usuarios.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { AuthService } from '../../servicios/auth.service';
+import { AuthService } from '../../../servicios/auth.service';
 
 @Component({
   selector: 'app-usuarios-admin',

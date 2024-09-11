@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UsuariosService } from '../../servicios/usuarios.service';
+import { UsuariosService } from '../../../servicios/usuarios.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular'; // Importar ToastController
 

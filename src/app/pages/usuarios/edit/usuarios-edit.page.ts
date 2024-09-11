@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UsuariosService } from '../../servicios/usuarios.service';
+import { UsuariosService } from '../../../servicios/usuarios.service';
 import { ToastController } from '@ionic/angular';
 
 @Component({
