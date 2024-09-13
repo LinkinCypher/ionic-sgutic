@@ -36,9 +36,11 @@ const routes: Routes = [
     data: { roles: [1] } // Solo los administradores (rol 1) pueden acceder
   },
   {
-    path: 'formulario',
-    loadChildren: () => import('./pages/mantenimientos/cpu/formulario/formulario.module').then( m => m.FormularioPageModule)
-  },
+    path: 'formulario-cpu',
+    loadChildren: () => import('./pages/mantenimientos/cpu/formulario/formulario.module').then( m => m.FormularioPageModule),
+    canActivate: [AuthGuard], // Protege la ruta
+    data: { roles: [1, 2, 3, 4, 5] } // Define los roles
+  },  
 ];
 
 @NgModule({

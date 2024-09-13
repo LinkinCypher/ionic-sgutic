@@ -1,13 +1,24 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>formulario</ion-title>
+    <ion-title>Mis Formularios de CPU</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">formulario</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list *ngIf="formularios.length > 0; else noFormularios">
+    <ion-item *ngFor="let formulario of formularios">
+      <ion-label>
+        <h2>{{ formulario.numeroFormulario }}</h2>
+        <p>Institución: {{ formulario.institucion }}</p>
+        <p>Provincia: {{ formulario.provincia }}</p>
+        <p>Edificio: {{ formulario.edificio }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #noFormularios>
+    <ion-item>
+      <ion-label>No has creado ningún formulario aún.</ion-label>
+    </ion-item>
+  </ng-template>
 </ion-content>
