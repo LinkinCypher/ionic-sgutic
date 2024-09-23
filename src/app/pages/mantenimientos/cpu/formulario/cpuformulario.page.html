@@ -5,28 +5,34 @@
     </ion-buttons>
     <ion-title>Formularios de CPU</ion-title>
     <ion-buttons slot="end"> <!-- Botón de regresar en la derecha -->
-      <ion-button (click)="regresar()">
-        <ion-icon slot="icon-only" class="fas fa-arrow-left"></ion-icon>
+      <ion-button (click)="recargarPagina()">
+        <ion-icon slot="icon-only" class="fa fa-refresh"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="formularios.length > 0; else noFormularios">
-    <ion-item *ngFor="let formulario of formularios">
-      <ion-label>
-        <h2>{{ formulario.numeroFormulario }}</h2>
-        <p>Institución: {{ formulario.institucion }}</p>
-        <p>Provincia: {{ formulario.provincia }}</p>
-        <p>Edificio: {{ formulario.edificio }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-
-  <ng-template #noFormularios>
-    <ion-item>
-      <ion-label>No has creado ningún formulario aún.</ion-label>
-    </ion-item>
-  </ng-template>
+  <ion-card>
+    <div class="table-responsive">
+      <table id="formulariosTable" class="display">
+        <thead>
+          <tr>
+            <th>Número Formulario</th>
+            <th>Institución</th>
+            <th>Provincia</th>
+            <th>Edificio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let formulario of formularios">
+            <td>{{ formulario.numeroFormulario }}</td>
+            <td>{{ formulario.institucion }}</td>
+            <td>{{ formulario.provincia }}</td>
+            <td>{{ formulario.edificio }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ion-card>
 </ion-content>

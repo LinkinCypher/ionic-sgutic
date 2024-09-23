@@ -2,3 +2,10 @@ ion-toolbar {
     --background: #0054e9; /* Cambia el color de fondo del toolbar */
     --color: #ffffff; /* Cambia el color del texto en el toolbar */
 }
+
+ion-content {
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+}
