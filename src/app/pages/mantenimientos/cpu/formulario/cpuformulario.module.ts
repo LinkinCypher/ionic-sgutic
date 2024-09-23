@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FormularioPageRoutingModule } from './formulario-routing.module';
+import { FormularioPageRoutingModule } from './cpuformulario-routing.module';
 
-import { FormularioPage } from './formulario.page';
+import { CpuFormularioPage } from './cpuformulario.page';
 
 @NgModule({
   imports: [
@@ -15,6 +15,6 @@ import { FormularioPage } from './formulario.page';
     IonicModule,
     FormularioPageRoutingModule
   ],
-  declarations: [FormularioPage]
+  declarations: [CpuFormularioPage]
 })
 export class FormularioPageModule {}

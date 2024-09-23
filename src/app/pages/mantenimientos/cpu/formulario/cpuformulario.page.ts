@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
-  templateUrl: './formulario.page.html',
-  styleUrls: ['./formulario.page.scss'],
+  templateUrl: './cpuformulario.page.html',
+  styleUrls: ['./cpuformulario.page.scss'],
 })
-export class FormularioPage implements OnInit {
+export class CpuFormularioPage implements OnInit {
   formularios: any[] = [];
 
   constructor(
