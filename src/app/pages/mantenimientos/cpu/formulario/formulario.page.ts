@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormularioService } from 'src/app/servicios/formulario.service'; // Asegúrate de la ruta correcta
+import { FormularioService } from 'src/app/servicios/formulario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -9,7 +10,10 @@ import { FormularioService } from 'src/app/servicios/formulario.service'; // Ase
 export class FormularioPage implements OnInit {
   formularios: any[] = [];
 
-  constructor(private formularioService: FormularioService) {}
+  constructor(
+    private formularioService: FormularioService, 
+    private router: Router,
+  ) {}
 
   ngOnInit() {
     this.cargarMisFormularios();
@@ -25,5 +29,9 @@ export class FormularioPage implements OnInit {
         console.error('Error al obtener los formularios:', error);
       }
     );
+  }
+
+  regresar() {
+    this.router.navigate(['/usuarios-admin']); // Redirige a la página de administración de usuarios
   }
 }
