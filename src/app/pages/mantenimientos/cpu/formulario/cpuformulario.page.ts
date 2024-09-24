@@ -1,6 +1,5 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormularioService } from 'src/app/servicios/formulario.service';
-import { Router } from '@angular/router';
 import * as $ from 'jquery'; // Importa jQuery
 import 'datatables.net'; // Importa DataTables
 
@@ -9,12 +8,12 @@ import 'datatables.net'; // Importa DataTables
   templateUrl: './cpuformulario.page.html',
   styleUrls: ['./cpuformulario.page.scss'],
 })
-export class CpuFormularioPage implements OnInit, AfterViewInit {
+export class CpuFormularioPage implements OnInit {
   formularios: any[] = [];
+  dataTable: any;
 
   constructor(
-    private formularioService: FormularioService, 
-    private router: Router,
+    private formularioService: FormularioService
   ) {}
 
   ngOnInit() {
@@ -34,18 +33,24 @@ export class CpuFormularioPage implements OnInit, AfterViewInit {
     );
   }
 
-  ngAfterViewInit() {
-    this.inicializarDataTable(); // Inicializa DataTables después de que la vista esté lista
-  }
-
   inicializarDataTable() {
-    // Espera a que la vista y los datos se carguen completamente
-    setTimeout(() => {
-      $('#formulariosTable').DataTable();
-    }, 1000);
+    if (this.dataTable) {
+      this.dataTable.destroy(); // Destruye la instancia anterior si existe
+    }
+    
+    this.dataTable = $('#formulariosTable').DataTable({
+      data: this.formularios,
+      columns: [
+        { data: 'numeroFormulario' },
+        { data: 'institucion' },
+        { data: 'provincia' },
+        { data: 'edificio' }
+      ]
+    });
   }
 
   recargarPagina() {
-    this.cargarMisFormularios(); // Vuelve a cargar los formularios
+    // Recargar los formularios y reiniciar la tabla
+    this.cargarMisFormularios();
   }
 }

@@ -13,26 +13,28 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <div class="table-responsive">
-      <table id="formulariosTable" class="display">
-        <thead>
-          <tr>
-            <th>Número Formulario</th>
-            <th>Institución</th>
-            <th>Provincia</th>
-            <th>Edificio</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let formulario of formularios">
-            <td>{{ formulario.numeroFormulario }}</td>
-            <td>{{ formulario.institucion }}</td>
-            <td>{{ formulario.provincia }}</td>
-            <td>{{ formulario.edificio }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <ion-card color="light">
+    <ion-card-content>
+      <div class="table-responsive">
+        <table id="formulariosTable" class="display">
+          <thead>
+            <tr>
+              <th>Número Formulario</th>
+              <th>Institución</th>
+              <th>Provincia</th>
+              <th>Edificio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let formulario of formularios">
+              <td>{{ formulario.numeroFormulario }}</td>
+              <td>{{ formulario.institucion }}</td>
+              <td>{{ formulario.provincia }}</td>
+              <td>{{ formulario.edificio }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ion-card-content>
   </ion-card>
 </ion-content>
