@@ -16,13 +16,25 @@
   <ion-card color="light">
     <ion-card-content>
       <div class="table-responsive">
-        <table id="formulariosTable" class="display">
+        <table id="formulariosTable" class="display compact" style="width:100%">
           <thead>
             <tr>
-              <th>Número Formulario</th>
+              <th>Número de Formulario</th>
               <th>Institución</th>
               <th>Provincia</th>
               <th>Edificio</th>
+              <th>Ubicación</th>
+              <th>Artículo</th>
+              <th>Marca</th>
+              <th>Modelo</th>
+              <th>Serie</th>
+              <th>Activo Fijo</th>
+              <th>Memoria</th>
+              <th>Procesador</th>
+              <th>Sistema Operativo</th>
+              <th>Disco Duro</th>
+              <th>% Disco Duro</th>
+              <th>Observación</th>
             </tr>
           </thead>
           <tbody>
@@ -31,6 +43,7 @@
               <td>{{ formulario.institucion }}</td>
               <td>{{ formulario.provincia }}</td>
               <td>{{ formulario.edificio }}</td>
+              <td>{{ formulario.articulo }}</td>
             </tr>
           </tbody>
         </table>

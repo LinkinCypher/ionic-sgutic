@@ -40,11 +40,24 @@ export class CpuFormularioPage implements OnInit {
     
     this.dataTable = $('#formulariosTable').DataTable({
       data: this.formularios,
+      scrollX: true,
       columns: [
         { data: 'numeroFormulario' },
         { data: 'institucion' },
         { data: 'provincia' },
-        { data: 'edificio' }
+        { data: 'edificio' },
+        { data: 'ubicacion' },
+        { data: 'articulo' },
+        { data: 'marca' },
+        { data: 'modelo' },
+        { data: 'serie' },
+        { data: 'activoFijo' },
+        { data: 'memoria' },
+        { data: 'procesador' },
+        { data: 'sistemaOperativo' },
+        { data: 'discoDuro' },
+        { data: 'porcentajeDiscoDuro' },
+        { data: 'observacion' }
       ],
       language: {
         "decimal": "",
