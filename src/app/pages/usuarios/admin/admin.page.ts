@@ -115,12 +115,24 @@ export class UsuariosAdminPage implements OnInit {
     switch (rol) {
       case 1:
         return 'Administrador';
-      case 2:
-        return 'Gestor';
-      case 3:
-        return 'Técnico';
-      case 4:
-        return 'Usuario';
+      case 20:
+        return 'Supervisor de División de Soporte Tecnológico';
+      case 21:
+        return 'División de Soporte Tecnológico';
+      case 30:
+        return 'Supervisor de División de Equipos Tecnológicos';
+      case 31:
+        return 'División de Equipos Tecnológicos';
+      case 40:
+        return 'Supervisor de División de Mantenimiento Tecnológico';
+      case 41:
+        return 'División de Mantenimiento Tecnológico';
+      case 50:
+        return 'Supervisor de División de Proyectos Tecnológicos';
+      case 51:
+        return 'División de Proyectos Tecnológicos';
+      case 60:
+        return 'Usuario de Lectura';
       default:
         return 'Desconocido';
     }

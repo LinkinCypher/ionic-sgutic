@@ -39,7 +39,7 @@ const routes: Routes = [
     path: 'formulario-cpu',
     loadChildren: () => import('./pages/mantenimientos/cpu/formulario/cpuformulario.module').then( m => m.FormularioPageModule),
     canActivate: [AuthGuard], // Protege la ruta
-    data: { roles: [1, 2, 3, 4, 5] } // Define los roles
+    data: { roles: [1, 30, 31] } // Define los roles
   },  
 ];
 
