@@ -19,19 +19,19 @@ const routes: Routes = [
   },
   {
     path: 'usuarios-admin',
-    loadChildren: () => import('./pages/usuarios/admin/admin.module').then(m => m.UsuariosAdminPageModule),
+    loadChildren: () => import('./pages/usuarios/admin/usuarios-admin.module').then(m => m.UsuariosAdminPageModule),
     canActivate: [AuthGuard], // Protege la ruta
     data: { roles: [1] } // Solo los administradores (rol 1) pueden acceder
   },
   {
     path: 'usuarios-create',
-    loadChildren: () => import('./pages/usuarios/create/create.module').then(m => m.UsuariosCreatePageModule),
+    loadChildren: () => import('./pages/usuarios/create/usuarios-create.module').then(m => m.UsuariosCreatePageModule),
     canActivate: [AuthGuard], // Protege la ruta
     data: { roles: [1] } // Solo los administradores (rol 1) pueden acceder
   },
   {
     path: 'usuarios-edit/:id',
-    loadChildren: () => import('./pages/usuarios/edit/edit.module').then(m => m.UsuariosEditPageModule),
+    loadChildren: () => import('./pages/usuarios/edit/usuarios-edit.module').then(m => m.UsuariosEditPageModule),
     canActivate: [AuthGuard], // Protege la ruta
     data: { roles: [1] } // Solo los administradores (rol 1) pueden acceder
   },

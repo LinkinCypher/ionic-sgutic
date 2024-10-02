@@ -5,8 +5,8 @@ import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-usuarios-edit',
-  templateUrl: './edit.page.html',
-  styleUrls: ['./edit.page.scss'],
+  templateUrl: './usuarios-edit.page.html',
+  styleUrls: ['./usuarios-edit.page.scss'],
 })
 export class UsuariosEditPage implements OnInit {
   usuario: any = {};

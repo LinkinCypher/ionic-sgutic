@@ -6,8 +6,8 @@ import { AuthService } from '../../../servicios/auth.service';
 
 @Component({
   selector: 'app-usuarios-admin',
-  templateUrl: './admin.page.html',
-  styleUrls: ['./admin.page.scss'],
+  templateUrl: './usuarios-admin.page.html',
+  styleUrls: ['./usuarios-admin.page.scss'],
 })
 export class UsuariosAdminPage implements OnInit {
   usuarios: any[] = [];

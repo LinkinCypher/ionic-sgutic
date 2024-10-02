@@ -30,24 +30,24 @@
         <ion-row class="header-row">
           <ion-col size="4" (click)="toggleSort('apellidos')"><strong>Apellidos y Nombres <i class="fa fa-sort"></i></strong></ion-col>
           <ion-col size="2" (click)="toggleSort('usuario')"><strong>Usuario <i class="fa fa-sort"></i></strong></ion-col>
-          <ion-col size="2" (click)="toggleSort('rol')"><strong>Rol <i class="fa fa-sort"></i></strong></ion-col>
-          <ion-col size="2" (click)="toggleSort('estado')"><strong>Estado <i class="fa fa-sort"></i></strong></ion-col>
-          <ion-col size="2"><strong>Acciones</strong></ion-col>
+          <ion-col size="4" (click)="toggleSort('rol')"><strong>Rol <i class="fa fa-sort"></i></strong></ion-col>
+          <ion-col size="1" (click)="toggleSort('estado')"><strong>Estado <i class="fa fa-sort"></i></strong></ion-col>
+          <ion-col size="1"><strong>Acciones</strong></ion-col>
         </ion-row>
 
         <!-- Filas de Usuarios -->
         <ion-row *ngFor="let usuario of usuarios">
           <ion-col size="4">{{ usuario.apellidos }} {{ usuario.nombres }}</ion-col>
           <ion-col size="2">{{ usuario.usuario }}</ion-col>
-          <ion-col size="2">{{ getRolTexto(usuario.rol) }}</ion-col>
+          <ion-col size="4">{{ getRolTexto(usuario.rol) }}</ion-col>
           
-          <ion-col size="2">
+          <ion-col size="1">
             <ion-badge [color]="getEstadoColor(usuario.estado)">
               {{ getEstadoTexto(usuario.estado) }}
             </ion-badge>
           </ion-col>
           
-          <ion-col size="2">
+          <ion-col size="1">
             <ion-button color="white" size="small" (click)="editarUsuario(usuario._id)">
               <ion-icon slot="icon-only" class="fa fa-pencil" color="secondary"></ion-icon>
             </ion-button>

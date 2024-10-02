@@ -5,8 +5,8 @@ import { ToastController } from '@ionic/angular'; // Importar ToastController
 
 @Component({
   selector: 'app-usuarios-create',
-  templateUrl: './create.page.html',
-  styleUrls: ['./create.page.scss'],
+  templateUrl: './usuarios-create.page.html',
+  styleUrls: ['./usuarios-create.page.scss'],
 })
 export class UsuariosCreatePage {
   usuario = {
