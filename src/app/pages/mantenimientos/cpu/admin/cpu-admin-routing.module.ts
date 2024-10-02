@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CpuFormularioPage } from './cpuformulario.page';
+import { CpuFormularioPage } from './cpu-admin.page';
 
 const routes: Routes = [
   {

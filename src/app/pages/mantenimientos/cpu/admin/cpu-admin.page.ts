@@ -5,8 +5,8 @@ import 'datatables.net'; // Importa DataTables
 
 @Component({
   selector: 'app-formulario',
-  templateUrl: './cpuformulario.page.html',
-  styleUrls: ['./cpuformulario.page.scss'],
+  templateUrl: './cpu-admin.page.html',
+  styleUrls: ['./cpu-admin.page.scss'],
 })
 export class CpuFormularioPage implements OnInit {
   formularios: any[] = [];
