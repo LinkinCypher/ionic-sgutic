@@ -103,6 +103,14 @@ ion-header {
 }
 
 ion-badge {
-    --padding-end: 15px;
-    --padding-start: 15px;
-}
+    width: 60px; /* Ancho fijo */
+    height: 15px; /* Alto fijo */
+    display: flex; /* Flexbox para centrar el contenido */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    font-size: 10px; /* Tamaño del texto dentro del badge */
+    border-radius: 15px; /* Redondeo opcional, ajusta según tus preferencias */
+    --padding-end: 0; /* Elimina el padding lateral predeterminado */
+    --padding-start: 0; /* Elimina el padding lateral predeterminado */
+  }
+  

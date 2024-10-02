@@ -3,8 +3,8 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button> <!-- Abre el menú -->
     </ion-buttons>
-    <ion-title>Formularios de CPU</ion-title>
-    <ion-buttons slot="end"> <!-- Botón de regresar en la derecha -->
+    <ion-title>Administrar Formularios de CPU</ion-title>
+    <ion-buttons slot="end"> <!-- Botón de recargar -->
       <ion-button (click)="recargarPagina()">
         <ion-icon slot="icon-only" class="fa fa-refresh"></ion-icon>
       </ion-button>
@@ -13,41 +13,41 @@
 </ion-header>
 
 <ion-content>
-  <ion-card color="light">
-    <ion-card-content>
-      <div class="table-responsive">
-        <table id="formulariosTable" class="display compact" style="width:100%">
-          <thead>
-            <tr>
-              <th>Número de Formulario</th>
-              <th>Institución</th>
-              <th>Provincia</th>
-              <th>Edificio</th>
-              <th>Ubicación</th>
-              <th>Artículo</th>
-              <th>Marca</th>
-              <th>Modelo</th>
-              <th>Serie</th>
-              <th>Activo Fijo</th>
-              <th>Memoria</th>
-              <th>Procesador</th>
-              <th>Sistema Operativo</th>
-              <th>Disco Duro</th>
-              <th>% Disco Duro</th>
-              <th>Observación</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let formulario of formularios">
-              <td>{{ formulario.numeroFormulario }}</td>
-              <td>{{ formulario.institucion }}</td>
-              <td>{{ formulario.provincia }}</td>
-              <td>{{ formulario.edificio }}</td>
-              <td>{{ formulario.articulo }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </ion-card-content>
+  <ion-card>
+    <div class="scroll-container"> <!-- Habilitar scroll horizontal -->
+      <ion-grid>
+        <!-- Encabezados -->
+        <ion-row class="header-row">
+          <ion-col><div class="col-num-formulario"><strong>Número de Formulario</strong></div></ion-col>
+          <ion-col><div class="col-ubicacion"><strong>Ubicación</strong></div></ion-col>
+          <ion-col><div class="col-marca"><strong>Marca</strong></div></ion-col>
+          <ion-col><div class="col-modelo"><strong>Modelo</strong></div></ion-col>
+          <ion-col><div class="col-serie"><strong>Serie</strong></div></ion-col>
+          <ion-col><div class="col-activo-fijo"><strong>Activo Fijo</strong></div></ion-col>
+          <ion-col><div class="col-memoria"><strong>Memoria</strong></div></ion-col>
+          <ion-col><div class="col-procesador"><strong>Procesador</strong></div></ion-col>
+          <ion-col><div class="col-sistema-operativo"><strong>Sistema Operativo</strong></div></ion-col>
+          <ion-col><div class="col-disco-duro"><strong>DiscoDuro</strong></div></ion-col>
+          <ion-col><div class="col-porcentaje-disco"><strong>%</strong></div></ion-col>
+          <ion-col><div class="col-observacion"><strong>Observación</strong></div></ion-col>
+        </ion-row>
+
+        <!-- Filas de Formularios -->
+        <ion-row *ngFor="let formulario of formularios">
+          <ion-col><div class="col-num-formulario">{{ formulario.numeroFormulario }}</div></ion-col>
+          <ion-col><div class="col-ubicacion">{{ formulario.ubicacion }}</div></ion-col>
+          <ion-col><div class="col-marca">{{ formulario.marca }}</div></ion-col>
+          <ion-col><div class="col-modelo">{{ formulario.modelo }}</div></ion-col>
+          <ion-col><div class="col-serie">{{ formulario.serie }}</div></ion-col>
+          <ion-col><div class="col-activo-fijo">{{ formulario.activoFijo }}</div></ion-col>
+          <ion-col><div class="col-memoria">{{ formulario.memoria }}</div></ion-col>
+          <ion-col><div class="col-procesador">{{ formulario.procesador }}</div></ion-col>
+          <ion-col><div class="col-sistema-operativo">{{ formulario.sistemaOperativo }}</div></ion-col>
+          <ion-col><div class="col-disco-duro">{{ formulario.discoDuro }}</div></ion-col>
+          <ion-col><div class="col-porcentaje-disco">{{ formulario.porcentajeDiscoDuro }}</div></ion-col>
+          <ion-col><div class="col-observacion">{{ formulario.observacion }}</div></ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
   </ion-card>
 </ion-content>
