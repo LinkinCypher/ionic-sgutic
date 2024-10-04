@@ -18,6 +18,7 @@
       <ion-grid>
         <!-- Encabezados -->
         <ion-row class="header-row">
+          <ion-col><div class="col-accion"><strong>Acción</strong></div></ion-col>
           <ion-col><div class="col-num-formulario"><strong>Número de Formulario</strong></div></ion-col>
           <ion-col><div class="col-ubicacion"><strong>Ubicación</strong></div></ion-col>
           <ion-col><div class="col-marca"><strong>Marca</strong></div></ion-col>
@@ -34,6 +35,11 @@
 
         <!-- Filas de Formularios -->
         <ion-row *ngFor="let formulario of formularios">
+          <ion-col class="col-accion">
+            <ion-button color="white" size="small">
+              <ion-icon slot="icon-only" class="fa fa-pencil" color="secondary"></ion-icon>
+            </ion-button>
+          </ion-col>
           <ion-col><div class="col-num-formulario">{{ formulario.numeroFormulario }}</div></ion-col>
           <ion-col><div class="col-ubicacion">{{ formulario.ubicacion }}</div></ion-col>
           <ion-col><div class="col-marca">{{ formulario.marca }}</div></ion-col>

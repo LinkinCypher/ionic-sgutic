@@ -29,13 +29,6 @@ ion-content {
     background-color: #f1f1f1; /* Color de fondo del scroll */
 }
 
-ion-grid {
-    min-width: 2100px; /* Asegura que el grid sea lo suficientemente ancho para el scroll horizontal */
-    border: 1px solid #ddd; /* Borde alrededor de toda la tabla */
-    overflow-x: auto; /* Asegura que el ion-grid tenga scroll si es necesario */
-    scrollbar-width: thick; /* Hace que el scroll sea más grueso en Firefox */
-}
-
 ion-row {
     border-bottom: 1px solid #ddd; /* Línea separadora entre filas */
     background-color: #ffffff; /* Color de fondo */
@@ -58,13 +51,25 @@ ion-col {
     justify-content: center; /* Alinea horizontalmente */
     word-wrap: break-word; /* Permite que el texto se divida en palabras si es necesario */
     white-space: normal; /* Permite que el texto envuelva a la siguiente línea */
-    height: 25px; /* Establece un alto */
-    font-size: 12px;
+    height: 30px; /* Establece un alto */
+    font-size: 12px; /* Tamaño de letra */
+}
+
+ion-grid {
+    min-width: 2200px; /* Asegura que el grid sea lo suficientemente ancho para el scroll horizontal */
+    border: 1px solid #ddd; /* Borde alrededor de toda la tabla */
+    overflow-x: auto; /* Asegura que el ion-grid tenga scroll si es necesario */
+    scrollbar-width: thick; /* Hace que el scroll sea más grueso en Firefox */
 }
 
 
 
 /* Anchos fijos para cada columna */
+.col-accion { 
+    width: 50px; word-wrap: break-word;  /* Permite ajustar el texto al tamaño de la columna */
+    white-space: normal;    /* Permite que el texto ocupe varias líneas si es necesario */
+    text-align: justify;    /* Alinea el texto de forma justificada */
+}
 .col-num-formulario { 
     width: 300px; word-wrap: break-word;  /* Permite ajustar el texto al tamaño de la columna */
     white-space: normal;    /* Permite que el texto ocupe varias líneas si es necesario */
