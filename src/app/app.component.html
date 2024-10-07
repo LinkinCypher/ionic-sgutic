@@ -1,11 +1,13 @@
 <ion-app>
   <!-- Menú lateral -->
   <ion-menu side="start" menuId="first" contentId="main-content">
+    
     <ion-header>
-      <ion-toolbar color="primary">
+      <ion-toolbar color="dark">
         <ion-title> Usuario: {{ nombreUsuario }} </ion-title>
       </ion-toolbar>
     </ion-header>
+
     <ion-content>
       <ion-list>
         <ion-item routerLink="/home" (click)="closeMenu()">

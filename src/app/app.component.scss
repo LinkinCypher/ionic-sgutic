@@ -1,7 +1,41 @@
+ion-menu {
+  --width: 325px; /* Ajusta el ancho del menú */
+}
+
+ion-toolbar {
+  --ion-background-color: #222428; /* Fondo oscuro */
+  color: #ffffff; /* Texto blanco */
+}
+
+ion-content {
+  --ion-background-color: #f4f5f8; /* Color de fondo claro */
+}
+
+ion-item {
+  --border-width: 0px; /* Sin borde inferior */
+  --background: transparent; /* Fondo transparente */
+}
+
+ion-item:hover {
+  --background: #dcdcdc; /* Efecto hover para los ítems del menú */
+}
+
 .sub-menu {
-    padding-left: 20px; /* Aumenta la indentación del submenú */
-    ion-item {
-      --inner-padding-start: 20px; /* Espaciado adicional */
-    }
-  }
-  
+  padding-left: 20px; /* Indentación del submenú */
+}
+
+ion-item {
+  --border-width: 0px; /* Sin borde inferior */
+  --background: transparent; /* Fondo transparente */
+  display: flex;
+  align-items: center;
+}
+
+ion-icon {
+  color: #005eff; /* Color de los íconos */
+  margin-right: 5px; /* Reduce el espacio entre el ícono y el texto */
+}
+
+ion-label {
+  color: #333333; /* Color del texto del menú */
+}
