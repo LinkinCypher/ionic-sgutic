@@ -11,35 +11,35 @@ ion-card-header {
     }
 }
 
-ion-toolbar{
-    --ion-background-color: transparent;
-    --opacity:0;
-}
-
 ion-content{
     --ion-background-color:#E1EAF9;
 }
 
-.wrapform{
-    margin-top: 15px;
+ion-card {
+    --ion-background-color: rgba(255, 255, 255, 0.5); /* Fondo blanco con 50% de transparencia */
+    width: 50%; /* ancho */
+    height: 75%; /* alto */
+    transform: translate(50%, -15%);
 }
 
-ion-item{
-    ion-input{
-        color:#647B9D;
+/* Ajustes para pantallas más pequeñas (tablets y móviles) */
+@media only screen and (max-width: 768px) {
+    ion-card {
+        width: 95%; /* ancho */
+        height: 60%; /* alto */
+        transform: translate(0%, -5%);
     }
 }
 
-.sign-btn-wrap{
-    text-align: center;
-    padding-top: 20px;
-    .sign-btn{
-        --ion-primary-color:#215AB7;
-        color:#F4F6FA;
+@media only screen and (max-width: 480px) {
+    ion-card {
+        width: 95%; /* ancho */
+        height: 50%; /* alto */
+        transform: translate(0%, -5%);
     }
 }
-
-ion-card{
-    --ion-background-color: transparent;
-    box-shadow: none !important;
+  
+ion-icon {
+    margin-right: 10px; /* Espacio entre el icono y el input */
+    font-size: 24px; /* Ajusta el tamaño del icono según sea necesario */
 }
