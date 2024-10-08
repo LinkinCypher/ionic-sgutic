@@ -36,11 +36,17 @@ const routes: Routes = [
     data: { roles: [1] } // Solo los administradores (rol 1) pueden acceder
   },
   {
-    path: 'formulario-cpu',
+    path: 'cpu-admin',
     loadChildren: () => import('./pages/mantenimientos/cpu/admin/cpu-admin.module').then( m => m.FormularioPageModule),
     canActivate: [AuthGuard], // Protege la ruta
     data: { roles: [1, 30, 31] } // Define los roles
-  },  
+  },   {
+    path: 'cpu-create',
+    loadChildren: () => import('./pages/mantenimientos/cpu/create/cpu-create.module').then( m => m.CpuCreatePageModule),
+    canActivate: [AuthGuard], // Protege la ruta
+    data: { roles: [1, 30, 31] } // Define los roles
+  },
+ 
 ];
 
 @NgModule({

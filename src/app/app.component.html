@@ -1,7 +1,7 @@
 <ion-app>
   <!-- Menú lateral -->
   <ion-menu side="start" menuId="first" contentId="main-content">
-    
+
     <ion-header>
       <ion-toolbar color="dark">
         <ion-title> Usuario: {{ nombreUsuario }} </ion-title>
@@ -29,7 +29,7 @@
         </ion-item>
         <ion-list *ngIf="mostrarSubMenuFormularios" class="sub-menu">
           <!-- Formularios -->
-          <ion-item routerLink="/formulario-cpu" (click)="closeMenu()">
+          <ion-item routerLink="/cpu-admin" (click)="closeMenu()">
             <ion-icon slot="start" name="document-text"></ion-icon>
             <ion-label>CPU</ion-label>
           </ion-item>

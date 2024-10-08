@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/cpu-admin"></ion-back-button> <!-- Botón de regresar -->
+    </ion-buttons>
+    <ion-title>Crear Formulario de CPU</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-content>
+      <form (ngSubmit)="crearFormulario()">
+        <ion-item>
+          <ion-label position="floating">Institución</ion-label>
+          <ion-input [(ngModel)]="formulario.institucion" name="institucion" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Provincia</ion-label>
+          <ion-input [(ngModel)]="formulario.provincia" name="provincia" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Edificio</ion-label>
+          <ion-input [(ngModel)]="formulario.edificio" name="edificio" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Artículo</ion-label>
+          <ion-input [(ngModel)]="formulario.articulo" name="articulo" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Ubicación</ion-label>
+          <ion-input [(ngModel)]="formulario.ubicacion" name="ubicacion" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Marca</ion-label>
+          <ion-input [(ngModel)]="formulario.marca" name="marca" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Modelo</ion-label>
+          <ion-input [(ngModel)]="formulario.modelo" name="modelo" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Serie</ion-label>
+          <ion-input [(ngModel)]="formulario.serie" name="serie" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Activo Fijo</ion-label>
+          <ion-input [(ngModel)]="formulario.activoFijo" name="activoFijo" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Memoria RAM</ion-label>
+          <ion-input [(ngModel)]="formulario.memoria" name="memoria" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Procesador</ion-label>
+          <ion-input [(ngModel)]="formulario.procesador" name="procesador" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Sistema Operativo</ion-label>
+          <ion-input [(ngModel)]="formulario.sistemaOperativo" name="sistemaOperativo" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Disco Duro</ion-label>
+          <ion-input [(ngModel)]="formulario.discoDuro" name="discoDuro" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Porcentaje Disco Duro</ion-label>
+          <ion-input [(ngModel)]="formulario.porcentajeDiscoDuro" name="porcentajeDiscoDuro" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Observación</ion-label>
+          <ion-input [(ngModel)]="formulario.observacion" name="observacion" required></ion-input>
+        </ion-item>      
+        <ion-button expand="block" type="submit" color="secondary">Crear Formulario</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
