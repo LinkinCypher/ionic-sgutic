@@ -9,13 +9,57 @@ import { ToastController } from '@ionic/angular'; // Importar ToastController
   styleUrls: ['./cpu-create.page.scss'],
 })
 export class CpuCreatePage {
-  formulario: any = {}; // Objeto para almacenar los datos del formulario
+  formulario = {
+    institucion: '',
+    provincia: '',
+    edificio: '',
+    articulo: '',
+    marca: '',
+    modelo: '',
+    serie: '',
+    activoFijo: '',
+    memoria: '',
+    procesador: '',
+    sistemaOperativo: '',
+    discoDuro: '',
+    porcentajeDiscoDuro: '',
+    usuario:'',
+    ubicacion: '',
+    observacion: ''
+  };
 
   constructor(
     private formularioService: FormularioService,
     private router: Router,
     private toastController: ToastController // Inyectar ToastController
   ) {}
+
+  ngOnInit() {
+    this.resetForm(); // Restablecer el formulario al cargar la página
+    this.formulario.institucion = 'CNE'; // Establecer valor por defecto
+    this.formulario.provincia = 'MATRIZ'; // Establecer valor por defecto
+  }  
+
+  resetForm() {
+    this.formulario = {
+      institucion: '',
+      provincia: '',
+      edificio: '',
+      articulo: '',
+      marca: '',
+      modelo: '',
+      serie: '',
+      activoFijo: '',
+      memoria: '',
+      procesador: '',
+      sistemaOperativo: '',
+      discoDuro: '',
+      porcentajeDiscoDuro: '',
+      usuario:'',
+      ubicacion: '',
+      observacion: ''
+    }
+  }
 
   async mostrarToast(mensaje: string, color: string = 'success') {
     const toast = await this.toastController.create({
@@ -26,15 +70,27 @@ export class CpuCreatePage {
     toast.present();
   }
 
+  validarFormulario(): boolean {
+    if (!this.formulario.institucion || !this.formulario.provincia || !this.formulario.edificio || !this.formulario.articulo || !this.formulario.ubicacion) {
+      this.mostrarToast('Algunos campos son obligatorios', 'danger');
+      return false;
+    }
+    return true;
+  }
+
   crearFormulario() {
-    this.formularioService.crearFormulario(this.formulario).subscribe(
-      (response) => {
-        console.log('Formulario creado con éxito:', response);
-        this.router.navigate(['/cpu-admin']); // Redirige a la página de administración
-      },
-      (error) => {
+    if (this.validarFormulario()) {
+      this.formularioService.crearFormulario(this.formulario).subscribe(() => {
+        this.mostrarToast('Formulario creado exitosamente');
+        this.router.navigate(['/cpu-admin']);
+      }, error => {
+        this.mostrarToast('El formulario ya existe', 'danger');
         console.error('Error al crear el formulario:', error);
-      }
-    );
+      });
+    }
+  }
+
+  regresar() {
+    this.router.navigate(['/cpu-admin']); // Redirige a la página de administración de usuarios
   }
 }

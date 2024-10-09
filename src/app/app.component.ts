@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
       if (isAuthenticated) {
         this.authService.getUserRole().subscribe(rol => {
           this.esAdmin = rol === 1;
-          this.esFormulario = [1, 30, 31].includes(rol); // Permitir que usuarios con rol accedan a formularios
+          this.esFormulario = [1, 40, 41].includes(rol); // Permitir que usuarios con rol accedan a formularios
         });
 
         // Obtener el nombre del usuario logueado
