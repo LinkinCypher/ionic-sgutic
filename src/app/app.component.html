@@ -15,36 +15,45 @@
           <ion-label>Home</ion-label>
         </ion-item>
 
-        <!-- Opción de Administrar Usuarios, solo visible para administradores -->
+        <!-- USUARIOS -->
         <ion-item *ngIf="esAdmin" routerLink="/usuarios-admin" (click)="closeMenu()">
           <ion-icon slot="start" name="people"></ion-icon>
           <ion-label>Administrar Usuarios</ion-label>
         </ion-item>
+        <!-- FIN USUARIOS -->
 
-        <!-- Submenú de Formularios -->
+        <!-- MANTENIMIENTO -->
         <ion-item *ngIf="esFormulario" (click)="toggleSubMenuFormularios()">
           <ion-icon slot="start" name="folder"></ion-icon>
           <ion-label>Formularios de Mantenimiento</ion-label>
           <ion-icon [name]="mostrarSubMenuFormularios ? 'chevron-up' : 'chevron-down'" slot="end"></ion-icon>
         </ion-item>
         <ion-list *ngIf="mostrarSubMenuFormularios" class="sub-menu">
-          <!-- Formularios -->
-          <ion-item routerLink="/cpu-admin" (click)="closeMenu()">
+          <!-- Sub menú -->
+          <ion-item *ngIf="esCpuAdmin" routerLink="/cpu-admin" (click)="closeMenu()">
             <ion-icon slot="start" name="document-text"></ion-icon>
             <ion-label>CPU - Admin</ion-label>
           </ion-item>
-          <ion-item routerLink="/cpu-create" (click)="closeMenu()">
+          <ion-item *ngIf="esCpuCreate" routerLink="/cpu-create" (click)="closeMenu()">
             <ion-icon slot="start" name="document-text"></ion-icon>
             <ion-label>Crear CPU</ion-label>
           </ion-item>
         </ion-list>
+        <!-- FIN MANTENIMIENTO -->
 
+        
+      </ion-list>
+    </ion-content>
+
+    <!-- Botón Salir -->
+    <ion-footer>
+      <ion-toolbar color="light">
         <ion-item (click)="logout()">
           <ion-icon slot="start" class="fa fa-power-off"></ion-icon>
           <ion-label>Salir</ion-label>
         </ion-item>
-      </ion-list>
-    </ion-content>
+      </ion-toolbar>
+    </ion-footer>
   </ion-menu>
 
   <!-- Contenido principal -->

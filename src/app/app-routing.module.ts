@@ -39,12 +39,12 @@ const routes: Routes = [
     path: 'cpu-admin',
     loadChildren: () => import('./pages/mantenimientos/cpu/admin/cpu-admin.module').then( m => m.FormularioPageModule),
     canActivate: [AuthGuard], // Protege la ruta
-    data: { roles: [1, 40, 41] } // Define los roles
+    data: { roles: [1, 40] } // Define los roles que pueden acceder
   },   {
     path: 'cpu-create',
     loadChildren: () => import('./pages/mantenimientos/cpu/create/cpu-create.module').then( m => m.CpuCreatePageModule),
     canActivate: [AuthGuard], // Protege la ruta
-    data: { roles: [1, 40, 41] } // Define los roles
+    data: { roles: [1, 40, 41] } // Define los roles que pueden acceder
   },
  
 ];

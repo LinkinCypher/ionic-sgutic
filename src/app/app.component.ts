@@ -10,7 +10,9 @@ import { MenuController } from '@ionic/angular';
 })
 export class AppComponent implements OnInit {
   esAdmin = false;
-  esFormulario = true; // Variable que controla si el usuario tiene acceso a formularios
+  esFormulario = true; // Variable que controla si el usuario tiene acceso
+  esCpuAdmin = true; // Variable que controla si el usuario tiene acceso
+  esCpuCreate = true; // Variable que controla si el usuario tiene acceso
   nombreUsuario: string | null = null;  // Variable para almacenar el nombre del usuario
   mostrarSubMenuFormularios = false; // Nueva variable para controlar el submenú
 
@@ -25,7 +27,9 @@ export class AppComponent implements OnInit {
       if (isAuthenticated) {
         this.authService.getUserRole().subscribe(rol => {
           this.esAdmin = rol === 1;
-          this.esFormulario = [1, 40, 41].includes(rol); // Permitir que usuarios con rol accedan a formularios
+          this.esFormulario = [1, 40, 41].includes(rol); // Permitir que usuarios con rol accedan
+          this.esCpuAdmin = [1, 40].includes(rol); // Acceso a CPU Admin (roles 1, 40)
+          this.esCpuCreate = [1, 40, 41].includes(rol); // Acceso a CPU Create (roles 1, 40, 41)
         });
 
         // Obtener el nombre del usuario logueado
