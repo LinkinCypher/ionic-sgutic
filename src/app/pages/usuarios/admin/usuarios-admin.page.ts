@@ -116,23 +116,23 @@ export class UsuariosAdminPage implements OnInit {
       case 1:
         return 'Administrador';
       case 20:
-        return 'Supervisor de División de Soporte Tecnológico';
+        return 'Supervisor de Soporte Tecnológico';
       case 21:
-        return 'División de Soporte Tecnológico';
+        return 'Soporte Tecnológico';
       case 30:
-        return 'Supervisor de División de Equipos Tecnológicos';
+        return 'Supervisor de Equipos Tecnológicos';
       case 31:
-        return 'División de Equipos Tecnológicos';
+        return 'Equipos Tecnológicos';
       case 40:
-        return 'Supervisor de División de Mantenimiento Tecnológico';
+        return 'Supervisor de Mantenimiento Tecnológico';
       case 41:
-        return 'División de Mantenimiento Tecnológico';
+        return 'Mantenimiento Tecnológico';
       case 50:
-        return 'Supervisor de División de Proyectos Tecnológicos';
+        return 'Supervisor de Proyectos Tecnológicos';
       case 51:
-        return 'División de Proyectos Tecnológicos';
+        return 'Proyectos Tecnológicos';
       case 60:
-        return 'Usuario de Lectura';
+        return 'Usuario de Solo Lectura';
       default:
         return 'Desconocido';
     }

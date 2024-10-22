@@ -28,19 +28,84 @@
       <ion-grid>
         <!-- Encabezados -->
         <ion-row class="header-row">
-          <ion-col><div class="col-accion"><strong>Acción</strong></div></ion-col>
-          <ion-col><div class="col-num-formulario"><strong>Número de Formulario</strong></div></ion-col>
-          <ion-col><div class="col-ubicacion"><strong>Ubicación</strong></div></ion-col>
-          <ion-col><div class="col-marca"><strong>Marca</strong></div></ion-col>
-          <ion-col><div class="col-modelo"><strong>Modelo</strong></div></ion-col>
-          <ion-col><div class="col-serie"><strong>Serie</strong></div></ion-col>
-          <ion-col><div class="col-activo-fijo"><strong>Activo Fijo</strong></div></ion-col>
-          <ion-col><div class="col-memoria"><strong>Memoria</strong></div></ion-col>
-          <ion-col><div class="col-procesador"><strong>Procesador</strong></div></ion-col>
-          <ion-col><div class="col-sistema-operativo"><strong>Sistema Operativo</strong></div></ion-col>
-          <ion-col><div class="col-disco-duro"><strong>DiscoDuro</strong></div></ion-col>
-          <ion-col><div class="col-porcentaje-disco"><strong>%</strong></div></ion-col>
-          <ion-col><div class="col-observacion"><strong>Observación</strong></div></ion-col>
+
+          <ion-col>
+            <div class="col-accion">
+              <strong>Acción</strong>
+            </div>
+          </ion-col>
+          
+          <ion-col (click)="ordenarPor('numeroFormulario')">
+            <div class="col-num-formulario">
+              <strong>Número de Formulario </strong> <ion-icon [name]="sortColumn === 'numeroFormulario' ? (sortDirection === 'asc' ? 'arrow-up' : 'arrow-down') : ''"></ion-icon>
+            </div>
+          </ion-col>
+
+          <ion-col (click)="ordenarPor('ubicacion')">
+            <div class="col-ubicacion">
+              <strong>Ubicación </strong> <ion-icon [name]="sortColumn === 'ubicacion' ? (sortDirection === 'asc' ? 'arrow-up' : 'arrow-down') : ''"></ion-icon>
+            </div>
+          </ion-col>
+          
+          <ion-col (click)="ordenarPor('marca')">
+            <div class="col-marca">
+              <strong>Marca </strong> <ion-icon [name]="sortColumn === 'marca' ? (sortDirection === 'asc' ? 'arrow-up' : 'arrow-down') : ''"></ion-icon>
+            </div>
+          </ion-col>
+
+          <ion-col (click)="ordenarPor('modelo')">
+            <div class="col-modelo">
+              <strong>Modelo </strong> <ion-icon [name]="sortColumn === 'modelo' ? (sortDirection === 'asc' ? 'arrow-up' : 'arrow-down') : ''"></ion-icon>
+            </div>
+          </ion-col>
+          
+          <ion-col (click)="ordenarPor('serie')">
+            <div class="col-serie">
+              <strong>Serie </strong> <ion-icon [name]="sortColumn === 'serie' ? (sortDirection === 'asc' ? 'arrow-up' : 'arrow-down') : ''"></ion-icon>
+            </div>
+          </ion-col>
+          
+          <ion-col (click)="ordenarPor('activoFijo')">
+            <div class="col-activo-fijo">
+              <strong>Activo Fijo </strong> <ion-icon [name]="sortColumn === 'activoFijo' ? (sortDirection === 'asc' ? 'arrow-up' : 'arrow-down') : ''"></ion-icon>
+            </div>
+          </ion-col>
+
+          <ion-col (click)="ordenarPor('memoria')">
+            <div class="col-memoria">
+              <strong>Memoria </strong> <ion-icon [name]="sortColumn === 'memoria' ? (sortDirection === 'asc' ? 'arrow-up' : 'arrow-down') : ''"></ion-icon>
+            </div>
+          </ion-col>
+          
+          <ion-col (click)="ordenarPor('procesador')">
+            <div class="col-procesador">
+              <strong>Procesador </strong> <ion-icon [name]="sortColumn === 'procesador' ? (sortDirection === 'asc' ? 'arrow-up' : 'arrow-down') : ''"></ion-icon>
+            </div>
+          </ion-col>
+          
+          <ion-col (click)="ordenarPor('sistemaOperativo')">
+            <div class="col-sistema-operativo">
+              <strong>Sistema Operativo </strong> <ion-icon [name]="sortColumn === 'sistemaOperativo' ? (sortDirection === 'asc' ? 'arrow-up' : 'arrow-down') : ''"></ion-icon>
+            </div>
+          </ion-col>
+          
+          <ion-col (click)="ordenarPor('discoDuro')">
+            <div class="col-disco-duro">
+              <strong>DiscoDuro </strong> <ion-icon [name]="sortColumn === 'discoDuro' ? (sortDirection === 'asc' ? 'arrow-up' : 'arrow-down') : ''"></ion-icon>
+            </div>
+          </ion-col>
+          
+          <ion-col (click)="ordenarPor('porcentajeDisco')">
+            <div class="col-porcentaje-disco">
+              <strong>% </strong> <ion-icon [name]="sortColumn === 'porcentajeDisco' ? (sortDirection === 'asc' ? 'arrow-up' : 'arrow-down') : ''"></ion-icon>
+            </div>
+          </ion-col>
+          
+          <ion-col (click)="ordenarPor('observacion')">
+            <div class="col-observacion">
+              <strong>Observación </strong> <ion-icon [name]="sortColumn === 'observacion' ? (sortDirection === 'asc' ? 'arrow-up' : 'arrow-down') : ''"></ion-icon>
+            </div>
+          </ion-col>
         </ion-row>
 
         <!-- Filas de Formularios -->
