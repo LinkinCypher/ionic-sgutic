@@ -70,6 +70,19 @@ export class UsuariosCreatePage {
     }
   }
 
+  // Autogenerar el usuario a partir de nombres y apellidos
+  autocompletarUsuario() {
+    const nombresArray = this.usuario.nombres.trim().split(' ');
+    const apellidosArray = this.usuario.apellidos.trim().split(' ');
+
+    // Tomar el primer nombre y el primer apellido
+    const primerNombre = nombresArray[0] ? nombresArray[0].toLowerCase() : '';
+    const primerApellido = apellidosArray[0] ? apellidosArray[0].toLowerCase() : '';
+
+    // Concatenar el primer nombre y el primer apellido
+    this.usuario.usuario = `${primerNombre}${primerApellido}`;
+  }
+
   regresar() {
     this.router.navigate(['/usuarios-admin']); // Redirige a la página de administración de usuarios
   }

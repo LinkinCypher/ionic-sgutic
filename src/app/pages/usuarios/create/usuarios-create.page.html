@@ -27,6 +27,7 @@
                 placeholder="Nombre"
                 name="nombres"
                 [(ngModel)]="usuario.nombres"
+                (ionInput)="autocompletarUsuario()"
                 required>
               </ion-input>
             </ion-col>
@@ -38,6 +39,7 @@
                 placeholder="Apellido"
                 name="apellidos"
                 [(ngModel)]="usuario.apellidos"
+                (ionInput)="autocompletarUsuario()"
                 required>
               </ion-input>
             </ion-col>
