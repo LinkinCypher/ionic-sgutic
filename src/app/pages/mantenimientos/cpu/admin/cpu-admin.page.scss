@@ -70,7 +70,7 @@ ion-grid {
     white-space: normal;    /* Permite que el texto ocupe varias líneas si es necesario */
     text-align: justify;    /* Alinea el texto de forma justificada */
 }
-.col-ubicacion { 
+.col-oficina { 
     width: 250px; 
     word-wrap: break-word;  /* Permite ajustar el texto al tamaño de la columna */
     white-space: normal;    /* Permite que el texto ocupe varias líneas si es necesario */
@@ -100,7 +100,7 @@ ion-grid {
     white-space: normal;    /* Permite que el texto ocupe varias líneas si es necesario */
     text-align: justify;    /* Alinea el texto de forma justificada */
 }
-.col-memoria { 
+.col-ram { 
     width: 75px; 
     word-wrap: break-word;  /* Permite ajustar el texto al tamaño de la columna */
     white-space: normal;    /* Permite que el texto ocupe varias líneas si es necesario */
@@ -118,13 +118,13 @@ ion-grid {
     white-space: normal;    /* Permite que el texto ocupe varias líneas si es necesario */
     text-align: justify;    /* Alinea el texto de forma justificada */
 }
-.col-disco-duro { 
+.col-almacenamiento { 
     width: 85px; 
     word-wrap: break-word;  /* Permite ajustar el texto al tamaño de la columna */
     white-space: normal;    /* Permite que el texto ocupe varias líneas si es necesario */
     text-align: justify;    /* Alinea el texto de forma justificada */
 }
-.col-porcentaje-disco { 
+.col-porcentaje { 
     width: 35px; 
     word-wrap: break-word;  /* Permite ajustar el texto al tamaño de la columna */
     white-space: normal;    /* Permite que el texto ocupe varias líneas si es necesario */

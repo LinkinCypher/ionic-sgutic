@@ -18,14 +18,14 @@ export class CpuCreatePage {
     modelo: '',
     serie: '',
     activoFijo: '',
-    memoria: '',
+    usuario:'',
+    oficina: '',
+    observacion: '',
+    ram: '',
     procesador: '',
     sistemaOperativo: '',
-    discoDuro: '',
-    porcentajeDiscoDuro: '',
-    usuario:'',
-    ubicacion: '',
-    observacion: ''
+    almacenamiento: '',
+    porcentaje: ''
   };
 
   mostrarCamposCPU: boolean = false; // Nueva propiedad para controlar la visualización
@@ -57,14 +57,14 @@ export class CpuCreatePage {
       modelo: '',
       serie: '',
       activoFijo: '',
-      memoria: '',
+      usuario:'',
+      oficina: '',
+      observacion: '',
+      ram: '',
       procesador: '',
       sistemaOperativo: '',
-      discoDuro: '',
-      porcentajeDiscoDuro: '',
-      usuario:'',
-      ubicacion: '',
-      observacion: ''
+      almacenamiento: '',
+      porcentaje: ''
     };
     this.mostrarCamposCPU = false; // Restablecer la visualización al restablecer el formulario
   }
@@ -79,7 +79,7 @@ export class CpuCreatePage {
   }
 
   validarFormulario(): boolean {
-    if (!this.formulario.institucion || !this.formulario.provincia || !this.formulario.edificio || !this.formulario.articulo || !this.formulario.ubicacion) {
+    if (!this.formulario.institucion || !this.formulario.provincia || !this.formulario.edificio || !this.formulario.articulo || !this.formulario.oficina) {
       this.mostrarToast('Algunos campos son obligatorios', 'danger');
       return false;
     }
