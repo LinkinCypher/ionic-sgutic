@@ -3,6 +3,8 @@ import { UsuariosService } from '../../../servicios/usuarios.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { AuthService } from '../../../servicios/auth.service';
+import { ModalController } from '@ionic/angular'; // Importar ModalController
+import { UsuariosCreatePage } from '../create/usuarios-create.page'; // Importar el componente de crear usuario
 
 @Component({
   selector: 'app-usuarios-admin',
@@ -19,7 +21,8 @@ export class UsuariosAdminPage implements OnInit {
   constructor(
     private usuariosService: UsuariosService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private modalController: ModalController // Inyectar ModalController
   ) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd && event.url === '/usuarios-admin')
@@ -79,14 +82,20 @@ export class UsuariosAdminPage implements OnInit {
     this.usuarios = this.sortUsuarios(this.usuarios, this.sortColumn, this.sortDirection);
   }
 
-  crearUsuario() {
-    this.router.navigate(['/usuarios-create']);
+  // Abrir modal para crear usuario
+  async abrirModalCrearUsuario() {
+    const modal = await this.modalController.create({
+      component: UsuariosCreatePage
+    });
+    await modal.present();
+  
+    const { data } = await modal.onWillDismiss();
+    if (data && data.usuarioCreado) {
+      this.cargarUsuarios(); // Recargar los usuarios si se creó un nuevo usuario
+    }
   }
 
-  editarUsuario(id: string) {
-    this.router.navigate([`/usuarios-edit/${id}`]);
-  }
-
+  // Eliminar usuario
   eliminarUsuario(id: string) {
     if (confirm('¿Estás seguro de que deseas desactivar este usuario?')) {
       this.usuariosService.eliminarUsuario(id).subscribe(() => {
@@ -145,12 +154,8 @@ export class UsuariosAdminPage implements OnInit {
   getEstadoColor(estado: boolean): string {
     return estado ? 'success' : 'danger';
   }  
-  
-  formatFecha(fecha: string | null): string {
-    if (!fecha) {
-      return '';
-    }
-    const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: '2-digit', year: 'numeric' };
-    return new Date(fecha).toLocaleDateString('es-ES', options);
+
+  editarUsuario(id: string) {
+    this.router.navigate([`/usuarios-edit/${id}`]);
   }
 }

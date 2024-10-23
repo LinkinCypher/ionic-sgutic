@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UsuariosService } from '../../../servicios/usuarios.service';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular'; // Importar ToastController
+import { ToastController, ModalController } from '@ionic/angular'; // Importar ModalController
 
 @Component({
   selector: 'app-usuarios-create',
@@ -14,15 +14,16 @@ export class UsuariosCreatePage {
     apellidos: '',
     usuario: '',
     password: '',
-    rol: 4, // Rl por defecto
-    estado: true, // Por defeccto se crea un usuario con el estado true
+    rol: 4, // Rol por defecto
+    estado: true, // Por defecto se crea un usuario con el estado true
     fecha_nacimiento: ''
   };
 
   constructor(
     private usuariosService: UsuariosService,
     private router: Router,
-    private toastController: ToastController // Inyectar ToastController
+    private toastController: ToastController,
+    private modalController: ModalController // Inyectar ModalController
   ) {}
 
   ngOnInit() {
@@ -62,12 +63,16 @@ export class UsuariosCreatePage {
     if (this.validarFormulario()) {
       this.usuariosService.crearUsuario(this.usuario).subscribe(() => {
         this.mostrarToast('Usuario creado exitosamente');
-        this.router.navigate(['/usuarios-admin']);
+        this.modalController.dismiss({ usuarioCreado: true }); // Cerrar el modal con datos
       }, error => {
         this.mostrarToast('El nombre de usuario ya existe', 'danger');
         console.error('Error al crear el usuario:', error);
       });
     }
+  }
+
+  cerrarModal() {
+    this.modalController.dismiss(); // Cierra el modal sin datos
   }
 
   // Autogenerar el usuario a partir de nombres y apellidos
@@ -82,9 +87,4 @@ export class UsuariosCreatePage {
     // Concatenar el primer nombre y el primer apellido
     this.usuario.usuario = `${primerNombre}${primerApellido}`;
   }
-
-  regresar() {
-    this.router.navigate(['/usuarios-admin']); // Redirige a la página de administración de usuarios
-  }
-  
 }
