@@ -68,6 +68,7 @@
                 placeholder="ARTÍCULO"
                 name="articulo"
                 [(ngModel)]="formulario.articulo"
+                (ionChange)="onArticuloChange()"
                 required>
                 <ion-select-option value="CPU">CPU</ion-select-option>
               </ion-select>
@@ -124,6 +125,42 @@
 
 
         <ion-grid>
+          <ion-row>
+            <ion-col size="3">
+              <ion-input
+                name="usuario"
+                label="Usuario del activo" 
+                labelPlacement="floating"
+                fill="outline"
+                [(ngModel)]="formulario.usuario">
+              </ion-input>
+            </ion-col>
+
+            <ion-col size="3">
+              <ion-input
+                name="ubicacion"
+                label="Oficina" 
+                labelPlacement="floating"
+                fill="outline"
+                [(ngModel)]="formulario.ubicacion">
+              </ion-input>
+            </ion-col>
+
+            <ion-col size="6">
+              <ion-input
+                name="observacion"
+                label="Observacion" 
+                labelPlacement="floating"
+                fill="outline"
+                [(ngModel)]="formulario.observacion">
+              </ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+        <!-- CPU -->
+        <ion-grid *ngIf="mostrarCamposCPU"> <!-- Usar *ngIf para controlar la visualización -->
           <ion-row>
             <ion-col>
               <ion-input
@@ -210,41 +247,6 @@
           </ion-row>
         </ion-grid>
 
-
-
-        <ion-grid>
-          <ion-row>
-            <ion-col size="3">
-              <ion-input
-                name="usuario"
-                label="Usuario del activo" 
-                labelPlacement="floating"
-                fill="outline"
-                [(ngModel)]="formulario.usuario">
-              </ion-input>
-            </ion-col>
-
-            <ion-col size="3">
-              <ion-input
-                name="ubicacion"
-                label="Oficina" 
-                labelPlacement="floating"
-                fill="outline"
-                [(ngModel)]="formulario.ubicacion">
-              </ion-input>
-            </ion-col>
-
-            <ion-col size="6">
-              <ion-input
-                name="observacion"
-                label="Observacion" 
-                labelPlacement="floating"
-                fill="outline"
-                [(ngModel)]="formulario.observacion">
-              </ion-input>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
 
   
         <ion-button type="submit" shape="round" expand="full" color="secondary">Crear Formulario</ion-button>

@@ -28,6 +28,8 @@ export class CpuCreatePage {
     observacion: ''
   };
 
+  mostrarCamposCPU: boolean = false; // Nueva propiedad para controlar la visualización
+
   constructor(
     private formularioService: FormularioService,
     private router: Router,
@@ -39,6 +41,11 @@ export class CpuCreatePage {
     this.formulario.institucion = 'CNE'; // Establecer valor por defecto
     this.formulario.provincia = 'MATRIZ'; // Establecer valor por defecto
   }  
+
+  // Método para verificar el artículo seleccionado
+  onArticuloChange() {
+    this.mostrarCamposCPU = this.formulario.articulo === 'CPU';
+  }
 
   resetForm() {
     this.formulario = {
@@ -58,7 +65,8 @@ export class CpuCreatePage {
       usuario:'',
       ubicacion: '',
       observacion: ''
-    }
+    };
+    this.mostrarCamposCPU = false; // Restablecer la visualización al restablecer el formulario
   }
 
   async mostrarToast(mensaje: string, color: string = 'success') {
