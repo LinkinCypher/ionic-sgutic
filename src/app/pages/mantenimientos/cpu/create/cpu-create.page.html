@@ -70,7 +70,18 @@
             (ionChange)="onArticuloChange()"
             required>
             <ion-select-option value="CPU">CPU</ion-select-option>
-            <ion-select-option value="LAPTOP">LAPTOP</ion-select-option>
+            <ion-select-option value="MON">Monitor</ion-select-option>
+            <ion-select-option value="TEC">Teclado</ion-select-option>
+            <ion-select-option value="MOU">Mouse</ion-select-option>
+            <ion-select-option value="UAE">Unidad de Almacenamiento Externo</ion-select-option>
+            <ion-select-option value="CPO">Cámara Polycom</ion-select-option>
+            <ion-select-option value="ESC">Escáner</ion-select-option>
+            <ion-select-option value="IMP">Impresora</ion-select-option>
+            <ion-select-option value="LAP">Laptop</ion-select-option>
+            <ion-select-option value="LEC">Lector de Barras</ion-select-option>
+            <ion-select-option value="PAR">Parlante</ion-select-option>
+            <ion-select-option value="TIP">Teléfono IP</ion-select-option>
+            <ion-select-option value="TVS">Televisor</ion-select-option>
           </ion-select>
         </ion-col>
       </ion-row>
@@ -251,8 +262,163 @@
     <!-- Fin CPU -->
 
 
+    <!-- Inicio MONITOR -->
+    <ion-grid *ngIf="mostrarCamposMON"> <!-- Controlar la visualización -->
+      <ion-row>
+        <ion-col size="3">
+          <ion-input
+            type="number"
+            name="pulgadas"
+            label="Pulgadas"
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.pulgadas">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fin MONITOR -->
+
+
+
+    <!-- Inicio TECLADO -->
+    <ion-grid *ngIf="mostrarCamposTEC"> <!-- Controlar la visualización -->
+      <ion-row>
+        <ion-col size="3">
+          <ion-input
+            name="tipo"
+            label="Tipo de Teclado" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.tipo">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fin TECLADO -->
+
+
+
+    <!-- Inicio MOUSE -->
+    <ion-grid *ngIf="mostrarCamposMOU"> <!-- Controlar la visualización -->
+      <ion-row>
+        <ion-col size="3">
+          <ion-input
+            name="tipo"
+            label="Tipo de Mouse" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.tipo">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fin MOUSE -->
+
+
+
+    <!-- Inicio UNIDAD DE ALMACENAMIENTO EXTERNO -->
+    <ion-grid *ngIf="mostrarCamposUAE"> <!-- Controlar la visualización -->
+      <ion-row>
+        <ion-col size="3">
+          <ion-input
+            type="number"
+            name="almacenamiento"
+            label="Almacenamiento en Gb"
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.almacenamiento">
+          </ion-input>
+        </ion-col>
+
+        <ion-col size="3">
+          <ion-input
+            type="number"
+            name="porcentaje"
+            label="Porcentaje"
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.porcentaje">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fin UNIDAD DE ALMACENAMIENTO EXTERNO -->
+
+
+
+    <!-- Inicio CAMARA POLYCOM -->
+    <ion-grid *ngIf="mostrarCamposUAE"> <!-- Controlar la visualización -->
+      <ion-row>
+        <ion-col>
+ 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fin CAMARA POLYCOM -->
+
+
+
+    <!-- Inicio ESCANER -->
+    <ion-grid *ngIf="mostrarCamposESC"> <!-- Controlar la visualización -->
+      <ion-row>
+        <ion-col size="3">
+          <ion-input
+            type="number"
+            name="numeroScan"
+            label="Número de Escaneos"
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.numeroScan">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fin CAMARA ESCANER -->
+
+
+
+    <!-- Inicio IMPRESORAS -->
+    <ion-grid *ngIf="mostrarCamposIMP"> <!-- Controlar la visualización -->
+      <ion-row>
+        <ion-col size="3">
+          <ion-input
+            name="tipo"
+            label="Tipo de Impresora" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.tipo">
+          </ion-input>
+        </ion-col>
+
+        <ion-col size="3">
+          <ion-input
+            name="direccionIP"
+            label="Direccion IP" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.direccionIP">
+          </ion-input>
+        </ion-col>
+
+        <ion-col size="3">
+          <ion-input
+            type="number"
+            name="numeroImpresiones"
+            label="Número de Impresiones"
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.numeroImpresiones">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fin IMPRESORAS -->
+
+
+
     <!-- Inicio LAPTOP -->
-    <ion-grid *ngIf="mostrarCamposLaptop"> <!-- Controlar la visualización -->
+    <ion-grid *ngIf="mostrarCamposLAP"> <!-- Controlar la visualización -->
       <ion-row>
         <ion-col>
           <ion-input
@@ -339,6 +505,106 @@
       </ion-row>
     </ion-grid>
     <!-- Fin LAPTOP -->
+
+
+
+    <!-- Inicio LECTOR DE BARRAS -->
+    <ion-grid *ngIf="mostrarCamposLEC"> <!-- Controlar la visualización -->
+      <ion-row>
+        <ion-col>
+ 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fin LECTOR DE BARRAS -->
+
+
+
+    <!-- Inicio PARLANTES -->
+    <ion-grid *ngIf="mostrarCamposPAR"> <!-- Controlar la visualización -->
+      <ion-row>
+        <ion-col size="3">
+          <ion-input
+            name="tipo"
+            label="Tipo de Parlante" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.tipo">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fin PARLANTES -->
+
+
+
+    <!-- Inicio TELEFONOS IP -->
+    <ion-grid *ngIf="mostrarCamposTIP"> <!-- Controlar la visualización -->
+      <ion-row>
+        <ion-col size="3">
+          <ion-input
+            name="direccionIP"
+            label="Dirección IP" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.direccionIP">
+          </ion-input>
+        </ion-col>
+
+        <ion-col size="3">
+          <ion-input
+            name="nombreRegistrado"
+            label="Nombre Registrado" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.nombreRegistrado">
+          </ion-input>
+        </ion-col>
+
+        <ion-col size="3">
+          <ion-input
+            name="extension"
+            label="Extensión" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.extension">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fin TELEFONOS IP -->
+
+
+
+    <!-- Inicio TELEVISORES -->
+    <ion-grid *ngIf="mostrarCamposTVS"> <!-- Controlar la visualización -->
+      <ion-row>
+        <ion-col size="3">
+          <ion-input
+            name="tipo"
+            label="Tipo de Televisor" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.tipo">
+          </ion-input>
+        </ion-col>
+
+        <ion-col size="3">
+          <ion-select
+            interface="popover"
+            label="Smart TV" 
+            label-placement="floating" 
+            fill="outline"
+            name="smartTV"
+            [(ngModel)]="formulario.smartTV"
+            required>
+            <ion-select-option value="SI">Si</ion-select-option>
+            <ion-select-option value="NO">No</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fin TELEVISORES -->
 
 
 

@@ -14,6 +14,7 @@ export class CpuCreatePage {
     provincia: '',
     edificio: '',
     articulo: '',
+
     marca: '',
     modelo: '',
     serie: '',
@@ -21,15 +22,35 @@ export class CpuCreatePage {
     usuario:'',
     oficina: '',
     observacion: '',
+
     ram: '',
     procesador: '',
     sistemaOperativo: '',
     almacenamiento: '',
-    porcentaje: ''
+    porcentaje: '',
+    pulgadas: '',
+    tipo: '',
+    numeroScan: '',
+    direccionIP: '',
+    numeroImpresiones: '',
+    nombreRegistrado: '',
+    extension: '',
+    smartTV: '',
   };
 
   mostrarCamposCPU: boolean = false; // Controlar la visualización de CPU
-  mostrarCamposLaptop: boolean = false; // Controlar la visualización de Laptop
+  mostrarCamposMON: boolean = false; // Controlar la visualización de Monitor
+  mostrarCamposTEC: boolean = false; // Controlar la visualización de Teclado
+  mostrarCamposMOU: boolean = false; // Controlar la visualización de Mouse
+  mostrarCamposUAE: boolean = false; // Controlar la visualización de Unidades de Almacenamiento
+  mostrarCamposCPO: boolean = false; // Controlar la visualización de Cámara Polycom
+  mostrarCamposESC: boolean = false; // Controlar la visualización de Escáner
+  mostrarCamposIMP: boolean = false; // Controlar la visualización de Impresora
+  mostrarCamposLAP: boolean = false; // Controlar la visualización de Laptop
+  mostrarCamposLEC: boolean = false; // Controlar la visualización de Lector de Barras
+  mostrarCamposPAR: boolean = false; // Controlar la visualización de Parlante
+  mostrarCamposTIP: boolean = false; // Controlar la visualización de Teléfono IP
+  mostrarCamposTVS: boolean = false; // Controlar la visualización de Televisores
 
   constructor(
     private formularioService: FormularioService,
@@ -46,7 +67,18 @@ export class CpuCreatePage {
   // Método para verificar el artículo seleccionado
   onArticuloChange() {
     this.mostrarCamposCPU = this.formulario.articulo === 'CPU';
-    this.mostrarCamposLaptop = this.formulario.articulo === 'LAPTOP';
+    this.mostrarCamposMON = this.formulario.articulo === 'MON'
+    this.mostrarCamposTEC = this.formulario.articulo === 'TEC';
+    this.mostrarCamposMOU = this.formulario.articulo === 'MOU';
+    this.mostrarCamposUAE = this.formulario.articulo === 'UAE';
+    this.mostrarCamposCPO = this.formulario.articulo === 'CPO';
+    this.mostrarCamposESC = this.formulario.articulo === 'ESC';
+    this.mostrarCamposIMP = this.formulario.articulo === 'IMP';
+    this.mostrarCamposLAP = this.formulario.articulo === 'LAP';
+    this.mostrarCamposLEC = this.formulario.articulo === 'LEC';
+    this.mostrarCamposPAR = this.formulario.articulo === 'PAR';
+    this.mostrarCamposTIP = this.formulario.articulo === 'TIP';
+    this.mostrarCamposTVS = this.formulario.articulo === 'TVS';
   }
 
   resetForm() {
@@ -55,6 +87,7 @@ export class CpuCreatePage {
       provincia: '',
       edificio: '',
       articulo: '',
+
       marca: '',
       modelo: '',
       serie: '',
@@ -62,15 +95,35 @@ export class CpuCreatePage {
       usuario:'',
       oficina: '',
       observacion: '',
+
       ram: '',
       procesador: '',
       sistemaOperativo: '',
       almacenamiento: '',
-      porcentaje: ''
+      porcentaje: '',
+      pulgadas: '',
+      tipo: '',
+      numeroScan: '',
+      direccionIP: '',
+      numeroImpresiones: '',
+      nombreRegistrado: '',
+      extension: '',
+      smartTV: '',
     };
     // Restablecer la visualización al restablecer el formulario
     this.mostrarCamposCPU = false; 
-    this.mostrarCamposLaptop = false;
+    this.mostrarCamposMON = false;
+    this.mostrarCamposTEC = false;
+    this.mostrarCamposMOU = false;
+    this.mostrarCamposUAE = false;
+    this.mostrarCamposCPO = false;
+    this.mostrarCamposESC = false;
+    this.mostrarCamposIMP = false;
+    this.mostrarCamposLAP = false;
+    this.mostrarCamposLEC = false;
+    this.mostrarCamposPAR = false;
+    this.mostrarCamposTIP = false;
+    this.mostrarCamposTVS = false;
   }
 
   async mostrarToast(mensaje: string, color: string = 'success') {
@@ -94,10 +147,10 @@ export class CpuCreatePage {
     if (this.validarFormulario()) {
       this.formularioService.crearFormulario(this.formulario).subscribe(() => {
         this.mostrarToast('Formulario creado exitosamente');
-        
+        // Limpiar el formulario después de guardarlo exitosamente
+        this.resetForm();
         // Emitir evento para notificar que se ha creado un formulario
         this.formularioService.notificarFormularioCreado();
-  
         // Redirigir a la página de administración
         this.router.navigate(['/cpu-admin']);
       }, error => {
@@ -107,7 +160,6 @@ export class CpuCreatePage {
     }
   }
   
-
   regresar() {
     this.router.navigate(['/cpu-admin']); // Redirige a la página de administración de usuarios
   }
