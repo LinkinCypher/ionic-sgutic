@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service'; // Asegúrate de la ruta correcta
@@ -9,6 +9,9 @@ import { environment } from 'src/environments/environment';
 })
 export class FormularioService {
   private apiUrl = `${environment.apiUrl}/cpus`; // URL de la API de formularios de CPU
+
+  // EventEmitter para notificar la creación de un formulario
+  formularioCreado: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(
     private http: HttpClient,
@@ -33,6 +36,11 @@ export class FormularioService {
   crearFormulario(formulario: any): Observable<any> {
     const headers = this.getHeaders();
     return this.http.post<any>(`${this.apiUrl}/create`, formulario, { headers });
+  }
+
+  // Notificar a otras partes de la aplicación que se creó un formulario
+  notificarFormularioCreado() {
+    this.formularioCreado.emit();
   }
 
   // Actualizar un formulario existente

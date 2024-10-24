@@ -17,8 +17,15 @@ export class CpuFormularioPage implements OnInit {
 
   ngOnInit() {
     this.cargarMisFormularios();
+
+    // Escuchar el evento cuando se crea un formulario
+    this.formularioService.formularioCreado.subscribe(() => {
+      // Recargar la lista de formularios
+      this.cargarMisFormularios();
+    });
   }
 
+  // Método para cargar los formularios del usuario logueado
   cargarMisFormularios() {
     this.formularioService.obtenerMisFormularios().subscribe(
       (data) => {
@@ -54,8 +61,8 @@ export class CpuFormularioPage implements OnInit {
     });
   }
 
+  // Método para recargar la página manualmente
   recargarPagina() {
     this.cargarMisFormularios(); // Recargar los formularios
   }
-  
 }

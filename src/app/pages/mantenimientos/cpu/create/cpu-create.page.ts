@@ -90,6 +90,11 @@ export class CpuCreatePage {
     if (this.validarFormulario()) {
       this.formularioService.crearFormulario(this.formulario).subscribe(() => {
         this.mostrarToast('Formulario creado exitosamente');
+        
+        // Emitir evento para notificar que se ha creado un formulario
+        this.formularioService.notificarFormularioCreado();
+  
+        // Redirigir a la página de administración
         this.router.navigate(['/cpu-admin']);
       }, error => {
         this.mostrarToast('El formulario ya existe', 'danger');
@@ -97,6 +102,7 @@ export class CpuCreatePage {
       });
     }
   }
+  
 
   regresar() {
     this.router.navigate(['/cpu-admin']); // Redirige a la página de administración de usuarios
