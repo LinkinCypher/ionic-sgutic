@@ -93,7 +93,7 @@
     <!-- Inicio entradas permanentes -->
     <ion-grid>
       <ion-row>
-        <ion-col>
+        <ion-col size="4">
           <ion-input
             name="marca"
             label="Marca" 
@@ -103,7 +103,7 @@
           </ion-input>
         </ion-col>
 
-        <ion-col>
+        <ion-col size="4">
           <ion-input
             name="modelo"
             label="Modelo" 
@@ -113,7 +113,7 @@
           </ion-input>
         </ion-col>
 
-        <ion-col>
+        <ion-col size="4">
           <ion-input
             name="serie"
             label="Serie" 
@@ -123,7 +123,7 @@
           </ion-input>
         </ion-col>
 
-        <ion-col>
+        <ion-col size="4">
           <ion-input
             name="activoFijo"
             label="Activo Fijo" 
@@ -132,12 +132,8 @@
             [(ngModel)]="formulario.activoFijo">
           </ion-input>
         </ion-col>
-      </ion-row>
-    </ion-grid>
 
-    <ion-grid>
-      <ion-row>
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             name="usuario"
             label="Usuario del activo" 
@@ -147,7 +143,7 @@
           </ion-input>
         </ion-col>
 
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             name="oficina"
             label="Oficina" 
@@ -157,7 +153,7 @@
           </ion-input>
         </ion-col>
 
-        <ion-col size="6">
+        <ion-col size="8">
           <ion-input
             name="observacion"
             label="Observacion" 
@@ -175,7 +171,7 @@
     <!-- Inicio CPU -->
     <ion-grid *ngIf="mostrarCamposCPU"> <!-- Controlar la visualización -->
       <ion-row>
-        <ion-col>
+        <ion-col size="4">
           <ion-input
             type="number"
             name="ram"
@@ -186,7 +182,7 @@
           </ion-input>
         </ion-col>
 
-        <ion-col>
+        <ion-col size="4">
           <ion-select
             okText="Aceptar" 
             cancelText="Cancelar"
@@ -212,7 +208,7 @@
           </ion-select>
         </ion-col>
 
-        <ion-col>
+        <ion-col size="4">
           <ion-select
             okText="Aceptar" 
             cancelText="Cancelar"
@@ -236,7 +232,7 @@
           </ion-select>
         </ion-col>
 
-        <ion-col>
+        <ion-col size="4">
           <ion-input
             type="number"
             name="almacenamiento"
@@ -247,7 +243,7 @@
           </ion-input>
         </ion-col>
 
-        <ion-col>
+        <ion-col size="4">
           <ion-input
             type="number"
             name="porcentaje"
@@ -265,7 +261,7 @@
     <!-- Inicio MONITOR -->
     <ion-grid *ngIf="mostrarCamposMON"> <!-- Controlar la visualización -->
       <ion-row>
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             type="number"
             name="pulgadas"
@@ -284,7 +280,7 @@
     <!-- Inicio TECLADO -->
     <ion-grid *ngIf="mostrarCamposTEC"> <!-- Controlar la visualización -->
       <ion-row>
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             name="tipo"
             label="Tipo de Teclado" 
@@ -302,7 +298,7 @@
     <!-- Inicio MOUSE -->
     <ion-grid *ngIf="mostrarCamposMOU"> <!-- Controlar la visualización -->
       <ion-row>
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             name="tipo"
             label="Tipo de Mouse" 
@@ -320,7 +316,7 @@
     <!-- Inicio UNIDAD DE ALMACENAMIENTO EXTERNO -->
     <ion-grid *ngIf="mostrarCamposUAE"> <!-- Controlar la visualización -->
       <ion-row>
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             type="number"
             name="almacenamiento"
@@ -331,7 +327,7 @@
           </ion-input>
         </ion-col>
 
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             type="number"
             name="porcentaje"
@@ -350,7 +346,7 @@
     <!-- Inicio CAMARA POLYCOM -->
     <ion-grid *ngIf="mostrarCamposUAE"> <!-- Controlar la visualización -->
       <ion-row>
-        <ion-col>
+        <ion-col size="4">
  
         </ion-col>
       </ion-row>
@@ -362,7 +358,7 @@
     <!-- Inicio ESCANER -->
     <ion-grid *ngIf="mostrarCamposESC"> <!-- Controlar la visualización -->
       <ion-row>
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             type="number"
             name="numeroScan"
@@ -381,7 +377,7 @@
     <!-- Inicio IMPRESORAS -->
     <ion-grid *ngIf="mostrarCamposIMP"> <!-- Controlar la visualización -->
       <ion-row>
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             name="tipo"
             label="Tipo de Impresora" 
@@ -391,7 +387,7 @@
           </ion-input>
         </ion-col>
 
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             name="direccionIP"
             label="Direccion IP" 
@@ -401,7 +397,7 @@
           </ion-input>
         </ion-col>
 
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             type="number"
             name="numeroImpresiones"
@@ -420,7 +416,7 @@
     <!-- Inicio LAPTOP -->
     <ion-grid *ngIf="mostrarCamposLAP"> <!-- Controlar la visualización -->
       <ion-row>
-        <ion-col>
+        <ion-col size="4">
           <ion-input
             type="number"
             name="ram"
@@ -431,7 +427,7 @@
           </ion-input>
         </ion-col>
 
-        <ion-col>
+        <ion-col size="4">
           <ion-select
             okText="Aceptar" 
             cancelText="Cancelar"
@@ -457,7 +453,7 @@
           </ion-select>
         </ion-col>
 
-        <ion-col>
+        <ion-col size="4">
           <ion-select
             okText="Aceptar" 
             cancelText="Cancelar"
@@ -481,7 +477,7 @@
           </ion-select>
         </ion-col>
 
-        <ion-col>
+        <ion-col size="4">
           <ion-input
             type="number"
             name="almacenamiento"
@@ -492,7 +488,7 @@
           </ion-input>
         </ion-col>
 
-        <ion-col>
+        <ion-col size="4">
           <ion-input
             type="number"
             name="porcentaje"
@@ -511,7 +507,7 @@
     <!-- Inicio LECTOR DE BARRAS -->
     <ion-grid *ngIf="mostrarCamposLEC"> <!-- Controlar la visualización -->
       <ion-row>
-        <ion-col>
+        <ion-col size="4">
  
         </ion-col>
       </ion-row>
@@ -523,7 +519,7 @@
     <!-- Inicio PARLANTES -->
     <ion-grid *ngIf="mostrarCamposPAR"> <!-- Controlar la visualización -->
       <ion-row>
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             name="tipo"
             label="Tipo de Parlante" 
@@ -541,7 +537,7 @@
     <!-- Inicio TELEFONOS IP -->
     <ion-grid *ngIf="mostrarCamposTIP"> <!-- Controlar la visualización -->
       <ion-row>
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             name="direccionIP"
             label="Dirección IP" 
@@ -551,7 +547,7 @@
           </ion-input>
         </ion-col>
 
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             name="nombreRegistrado"
             label="Nombre Registrado" 
@@ -561,7 +557,7 @@
           </ion-input>
         </ion-col>
 
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             name="extension"
             label="Extensión" 
@@ -579,7 +575,7 @@
     <!-- Inicio TELEVISORES -->
     <ion-grid *ngIf="mostrarCamposTVS"> <!-- Controlar la visualización -->
       <ion-row>
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-input
             name="tipo"
             label="Tipo de Televisor" 
@@ -589,7 +585,7 @@
           </ion-input>
         </ion-col>
 
-        <ion-col size="3">
+        <ion-col size="4">
           <ion-select
             interface="popover"
             label="Smart TV" 

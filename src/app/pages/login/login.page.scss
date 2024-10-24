@@ -17,26 +17,6 @@ ion-content{
 
 ion-card {
     --ion-background-color: rgba(255, 255, 255, 0.5); /* Fondo blanco con 50% de transparencia */
-    width: 50%; /* ancho */
-    height: 75%; /* alto */
-    transform: translate(50%, -15%);
-}
-
-/* Ajustes para pantallas más pequeñas (tablets y móviles) */
-@media only screen and (max-width: 768px) {
-    ion-card {
-        width: 95%; /* ancho */
-        height: 60%; /* alto */
-        transform: translate(0%, -5%);
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    ion-card {
-        width: 95%; /* ancho */
-        height: 50%; /* alto */
-        transform: translate(0%, -5%);
-    }
 }
   
 ion-icon {
