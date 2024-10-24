@@ -4,9 +4,11 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http'; // Importa el módulo HTTP
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; // Importa el módulo HTTP
 import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt'; // Importa JwtModule y JwtHelperService
 import { environment } from 'src/environments/environment';
+import { AuthInterceptor } from './servicios/auth.interceptor';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +16,7 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule, // Asegúrate de que HttpClientModule está importado
+    HttpClientModule, 
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
@@ -25,9 +27,17 @@ import { environment } from 'src/environments/environment';
     }),
   ],
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { 
+      provide: RouteReuseStrategy, 
+      useClass: IonicRouteStrategy,
+    },
     JwtHelperService, // Añade JwtHelperService aquí
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, // Asegura la configuración de JWT
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true, // Permite múltiples interceptores
+    }
   ],
   bootstrap: [AppComponent],
 })
