@@ -61,7 +61,7 @@ ion-grid {
 
 /* Anchos fijos para cada columna */
 .col-accion { 
-    width: 50px; word-wrap: break-word;  /* Permite ajustar el texto al tamaño de la columna */
+    width: 45px; word-wrap: break-word;  /* Permite ajustar el texto al tamaño de la columna */
     white-space: normal;    /* Permite que el texto ocupe varias líneas si es necesario */
     text-align: justify;    /* Alinea el texto de forma justificada */
 }
@@ -104,7 +104,7 @@ ion-grid {
     width: 100px; 
     word-wrap: break-word;  /* Permite ajustar el texto al tamaño de la columna */
     white-space: normal;    /* Permite que el texto ocupe varias líneas si es necesario */
-    text-align: justify;    /* Alinea el texto de forma justificada */
+    text-align: center;    /* Alinea el texto*/
 }
 .col-procesador { 
     width: 100px; 
@@ -122,16 +122,16 @@ ion-grid {
     width: 120px; 
     word-wrap: break-word;  /* Permite ajustar el texto al tamaño de la columna */
     white-space: normal;    /* Permite que el texto ocupe varias líneas si es necesario */
-    text-align: justify;    /* Alinea el texto de forma justificada */
+    text-align: center;    /* Alinea el texto*/
 }
 .col-porcentaje { 
     width: 35px; 
     word-wrap: break-word;  /* Permite ajustar el texto al tamaño de la columna */
     white-space: normal;    /* Permite que el texto ocupe varias líneas si es necesario */
-    text-align: justify;    /* Alinea el texto de forma justificada */
+    text-align: center;    /* Alinea el texto*/
 }
 .col-observacion { 
-    width: 500px; 
+    width: 600px; 
     word-wrap: break-word;  /* Permite ajustar el texto al tamaño de la columna */
     white-space: normal;    /* Permite que el texto ocupe varias líneas si es necesario */
     text-align: justify;    /* Alinea el texto de forma justificada */
