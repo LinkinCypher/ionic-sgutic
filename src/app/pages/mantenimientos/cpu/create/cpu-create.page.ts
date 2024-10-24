@@ -28,7 +28,8 @@ export class CpuCreatePage {
     porcentaje: ''
   };
 
-  mostrarCamposCPU: boolean = false; // Nueva propiedad para controlar la visualización
+  mostrarCamposCPU: boolean = false; // Controlar la visualización de CPU
+  mostrarCamposLaptop: boolean = false; // Controlar la visualización de Laptop
 
   constructor(
     private formularioService: FormularioService,
@@ -45,6 +46,7 @@ export class CpuCreatePage {
   // Método para verificar el artículo seleccionado
   onArticuloChange() {
     this.mostrarCamposCPU = this.formulario.articulo === 'CPU';
+    this.mostrarCamposLaptop = this.formulario.articulo === 'LAPTOP';
   }
 
   resetForm() {
@@ -66,7 +68,9 @@ export class CpuCreatePage {
       almacenamiento: '',
       porcentaje: ''
     };
-    this.mostrarCamposCPU = false; // Restablecer la visualización al restablecer el formulario
+    // Restablecer la visualización al restablecer el formulario
+    this.mostrarCamposCPU = false; 
+    this.mostrarCamposLaptop = false;
   }
 
   async mostrarToast(mensaje: string, color: string = 'success') {

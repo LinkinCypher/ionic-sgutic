@@ -13,242 +13,335 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  
+  <form (ngSubmit)="crearFormulario()">
+
+
+
+    <!-- Inicio Encabezado -->
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-select 
+            okText="Aceptar" 
+            cancelText="Cancelar"
+            placeholder="INSTITUCIÓN"
+            name="institucion"
+            [(ngModel)]="formulario.institucion"
+            required>
+            <ion-select-option value="CNE">CONSEJO NACIONAL ELECTORAL</ion-select-option>
+          </ion-select>
+        </ion-col>            
+
+        <ion-col>
+          <ion-select
+            okText="Aceptar" 
+            cancelText="Cancelar"
+            placeholder="LUGAR"
+            name="provincia"
+            [(ngModel)]="formulario.provincia"
+            required>
+            <ion-select-option value="MATRIZ">QUITO - MATRIZ</ion-select-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col>
+          <ion-select
+            okText="Aceptar" 
+            cancelText="Cancelar"
+            placeholder="EDIFICIO"
+            name="edificio"
+            [(ngModel)]="formulario.edificio"
+            required>
+            <ion-select-option value="6_DE_DICIEMBRE">6 DE DICIEMBRE</ion-select-option>
+            <ion-select-option value="PLATAFORMA">PLATAFORMA</ion-select-option>
+            <ion-select-option value="ED.RUMIPAMBA">EDIFICIO RUMIPAMBA</ion-select-option>
+            <ion-select-option value="ED.ROMERO">EDIFICIO ROMERO</ion-select-option>
+            <ion-select-option value="ED.ARCOTEL">EDIFICIO ARCOTEL</ion-select-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col>
+          <ion-select
+            okText="Aceptar" 
+            cancelText="Cancelar"
+            placeholder="ARTÍCULO"
+            name="articulo"
+            [(ngModel)]="formulario.articulo"
+            (ionChange)="onArticuloChange()"
+            required>
+            <ion-select-option value="CPU">CPU</ion-select-option>
+            <ion-select-option value="LAPTOP">LAPTOP</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fin Encabezado -->
+
+
     
-      <form (ngSubmit)="crearFormulario()">
+    <!-- Inicio entradas permanentes -->
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-input
+            name="marca"
+            label="Marca" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.marca">
+          </ion-input>
+        </ion-col>
+
+        <ion-col>
+          <ion-input
+            name="modelo"
+            label="Modelo" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.modelo">
+          </ion-input>
+        </ion-col>
+
+        <ion-col>
+          <ion-input
+            name="serie"
+            label="Serie" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.serie">
+          </ion-input>
+        </ion-col>
+
+        <ion-col>
+          <ion-input
+            name="activoFijo"
+            label="Activo Fijo" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.activoFijo">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          <ion-input
+            name="usuario"
+            label="Usuario del activo" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.usuario">
+          </ion-input>
+        </ion-col>
+
+        <ion-col size="3">
+          <ion-input
+            name="oficina"
+            label="Oficina" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.oficina">
+          </ion-input>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-input
+            name="observacion"
+            label="Observacion" 
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.observacion">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fin entradas permanentes -->
 
 
 
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <ion-select 
-                okText="Aceptar" 
-                cancelText="Cancelar"
-                placeholder="INSTITUCIÓN"
-                name="institucion"
-                [(ngModel)]="formulario.institucion"
-                required>
-                <ion-select-option value="CNE">CONSEJO NACIONAL ELECTORAL</ion-select-option>
-              </ion-select>
-            </ion-col>            
+    <!-- Inicio CPU -->
+    <ion-grid *ngIf="mostrarCamposCPU"> <!-- Controlar la visualización -->
+      <ion-row>
+        <ion-col>
+          <ion-input
+            type="number"
+            name="ram"
+            label="Ram en Gb"
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.ram">
+          </ion-input>
+        </ion-col>
 
-            <ion-col>
-              <ion-select
-                okText="Aceptar" 
-                cancelText="Cancelar"
-                placeholder="LUGAR"
-                name="provincia"
-                [(ngModel)]="formulario.provincia"
-                required>
-                <ion-select-option value="MATRIZ">QUITO - MATRIZ</ion-select-option>
-              </ion-select>
-            </ion-col>
+        <ion-col>
+          <ion-select
+            okText="Aceptar" 
+            cancelText="Cancelar"
+            label="Procesador" 
+            label-placement="floating" 
+            fill="outline"
+            name="procesador"
+            [(ngModel)]="formulario.procesador"
+            required>
+            <ion-select-option value="S/N">Sin datos</ion-select-option>
+            <ion-select-option value="Intel Xeon">Intel Xeon</ion-select-option>
+            <ion-select-option value="Intel Dual Core">Intel Dual Core</ion-select-option>
+            <ion-select-option value="Intel Core 2 Duo">Intel Core 2 Duo</ion-select-option>
+            <ion-select-option value="Intel Core 2 Quad">Intel Core 2 Quad</ion-select-option>
+            <ion-select-option value="Intel I3">Intel I3</ion-select-option>
+            <ion-select-option value="Intel I5">Intel I5</ion-select-option>
+            <ion-select-option value="Intel I7">Intel I7</ion-select-option>
+            <ion-select-option value="Intel I9">Intel I9</ion-select-option>
+            <ion-select-option value="AMD Ryzen 3">AMD Ryzen 3</ion-select-option>
+            <ion-select-option value="AMD Ryzen 5">AMD Ryzen 5</ion-select-option>
+            <ion-select-option value="AMD Ryzen 7">AMD Ryzen 7</ion-select-option>
+            <ion-select-option value="AMD Ryzen 9">AMD Ryzen 9</ion-select-option>
+          </ion-select>
+        </ion-col>
 
-            <ion-col>
-              <ion-select
-                okText="Aceptar" 
-                cancelText="Cancelar"
-                placeholder="EDIFICIO"
-                name="edificio"
-                [(ngModel)]="formulario.edificio"
-                required>
-                <ion-select-option value="6_DE_DICIEMBRE">6 DE DICIEMBRE</ion-select-option>
-                <ion-select-option value="PLATAFORMA">PLATAFORMA</ion-select-option>
-                <ion-select-option value="ED.RUMIPAMBA">EDIFICIO RUMIPAMBA</ion-select-option>
-                <ion-select-option value="ED.ROMERO">EDIFICIO ROMERO</ion-select-option>
-                <ion-select-option value="ED.ARCOTEL">EDIFICIO ARCOTEL</ion-select-option>
-              </ion-select>
-            </ion-col>
+        <ion-col>
+          <ion-select
+            okText="Aceptar" 
+            cancelText="Cancelar"
+            label="Sistema Operativo" 
+            label-placement="floating" 
+            fill="outline"
+            name="sistemaOperativo"
+            [(ngModel)]="formulario.sistemaOperativo"
+            required>
+            <ion-select-option value="S/N">Sin datos</ion-select-option>
+            <ion-select-option value="Windows XP">Windows XP</ion-select-option>
+            <ion-select-option value="Windows 7 PRO">Windows 7 PRO</ion-select-option>
+            <ion-select-option value="Windows 10 PRO">Windows 10 PRO</ion-select-option>
+            <ion-select-option value="Windows 11 PRO">Windows 11 PRO</ion-select-option>
+            <ion-select-option value="MacOs Mojave">MacOs Mojave</ion-select-option>
+            <ion-select-option value="MacOs Catalina">MacOs Catalina</ion-select-option>
+            <ion-select-option value="MacOs Big Sur">MacOs Big Sur</ion-select-option>
+            <ion-select-option value="MacOs Monterey">MacOs Monterey</ion-select-option>
+            <ion-select-option value="MacOs Ventura">MacOs Ventura</ion-select-option>
+            <ion-select-option value="Linux">Basado en Linux</ion-select-option>
+          </ion-select>
+        </ion-col>
 
-            <ion-col>
-              <ion-select
-                okText="Aceptar" 
-                cancelText="Cancelar"
-                placeholder="ARTÍCULO"
-                name="articulo"
-                [(ngModel)]="formulario.articulo"
-                (ionChange)="onArticuloChange()"
-                required>
-                <ion-select-option value="CPU">CPU</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+        <ion-col>
+          <ion-input
+            type="number"
+            name="almacenamiento"
+            label="Almacenamiento en Gb"
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.almacenamiento">
+          </ion-input>
+        </ion-col>
 
-
-        
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <ion-input
-                name="marca"
-                label="Marca" 
-                labelPlacement="floating"
-                fill="outline"
-                [(ngModel)]="formulario.marca">
-              </ion-input>
-            </ion-col>
-
-            <ion-col>
-              <ion-input
-                name="modelo"
-                label="Modelo" 
-                labelPlacement="floating"
-                fill="outline"
-                [(ngModel)]="formulario.modelo">
-              </ion-input>
-            </ion-col>
-
-            <ion-col>
-              <ion-input
-                name="serie"
-                label="Serie" 
-                labelPlacement="floating"
-                fill="outline"
-                [(ngModel)]="formulario.serie">
-              </ion-input>
-            </ion-col>
-
-            <ion-col>
-              <ion-input
-                name="activoFijo"
-                label="Activo Fijo" 
-                labelPlacement="floating"
-                fill="outline"
-                [(ngModel)]="formulario.activoFijo">
-              </ion-input>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+        <ion-col>
+          <ion-input
+            type="number"
+            name="porcentaje"
+            label="Porcentaje"
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.porcentaje">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fin CPU -->
 
 
+    <!-- Inicio LAPTOP -->
+    <ion-grid *ngIf="mostrarCamposLaptop"> <!-- Controlar la visualización -->
+      <ion-row>
+        <ion-col>
+          <ion-input
+            type="number"
+            name="ram"
+            label="Ram en Gb"
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.ram">
+          </ion-input>
+        </ion-col>
 
-        <ion-grid>
-          <ion-row>
-            <ion-col size="3">
-              <ion-input
-                name="usuario"
-                label="Usuario del activo" 
-                labelPlacement="floating"
-                fill="outline"
-                [(ngModel)]="formulario.usuario">
-              </ion-input>
-            </ion-col>
+        <ion-col>
+          <ion-select
+            okText="Aceptar" 
+            cancelText="Cancelar"
+            label="Procesador" 
+            label-placement="floating" 
+            fill="outline"
+            name="procesador"
+            [(ngModel)]="formulario.procesador"
+            required>
+            <ion-select-option value="S/N">Sin datos</ion-select-option>
+            <ion-select-option value="Intel Xeon">Intel Xeon</ion-select-option>
+            <ion-select-option value="Intel Dual Core">Intel Dual Core</ion-select-option>
+            <ion-select-option value="Intel Core 2 Duo">Intel Core 2 Duo</ion-select-option>
+            <ion-select-option value="Intel Core 2 Quad">Intel Core 2 Quad</ion-select-option>
+            <ion-select-option value="Intel I3">Intel I3</ion-select-option>
+            <ion-select-option value="Intel I5">Intel I5</ion-select-option>
+            <ion-select-option value="Intel I7">Intel I7</ion-select-option>
+            <ion-select-option value="Intel I9">Intel I9</ion-select-option>
+            <ion-select-option value="AMD Ryzen 3">AMD Ryzen 3</ion-select-option>
+            <ion-select-option value="AMD Ryzen 5">AMD Ryzen 5</ion-select-option>
+            <ion-select-option value="AMD Ryzen 7">AMD Ryzen 7</ion-select-option>
+            <ion-select-option value="AMD Ryzen 9">AMD Ryzen 9</ion-select-option>
+          </ion-select>
+        </ion-col>
 
-            <ion-col size="3">
-              <ion-input
-                name="oficina"
-                label="Oficina" 
-                labelPlacement="floating"
-                fill="outline"
-                [(ngModel)]="formulario.oficina">
-              </ion-input>
-            </ion-col>
+        <ion-col>
+          <ion-select
+            okText="Aceptar" 
+            cancelText="Cancelar"
+            label="Sistema Operativo" 
+            label-placement="floating" 
+            fill="outline"
+            name="sistemaOperativo"
+            [(ngModel)]="formulario.sistemaOperativo"
+            required>
+            <ion-select-option value="S/N">Sin datos</ion-select-option>
+            <ion-select-option value="Windows XP">Windows XP</ion-select-option>
+            <ion-select-option value="Windows 7 PRO">Windows 7 PRO</ion-select-option>
+            <ion-select-option value="Windows 10 PRO">Windows 10 PRO</ion-select-option>
+            <ion-select-option value="Windows 11 PRO">Windows 11 PRO</ion-select-option>
+            <ion-select-option value="MacOs Mojave">MacOs Mojave</ion-select-option>
+            <ion-select-option value="MacOs Catalina">MacOs Catalina</ion-select-option>
+            <ion-select-option value="MacOs Big Sur">MacOs Big Sur</ion-select-option>
+            <ion-select-option value="MacOs Monterey">MacOs Monterey</ion-select-option>
+            <ion-select-option value="MacOs Ventura">MacOs Ventura</ion-select-option>
+            <ion-select-option value="Linux">Basado en Linux</ion-select-option>
+          </ion-select>
+        </ion-col>
 
-            <ion-col size="6">
-              <ion-input
-                name="observacion"
-                label="Observacion" 
-                labelPlacement="floating"
-                fill="outline"
-                [(ngModel)]="formulario.observacion">
-              </ion-input>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+        <ion-col>
+          <ion-input
+            type="number"
+            name="almacenamiento"
+            label="Almacenamiento en Gb"
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.almacenamiento">
+          </ion-input>
+        </ion-col>
 
-
-        <!-- CPU -->
-        <ion-grid *ngIf="mostrarCamposCPU"> <!-- Usar *ngIf para controlar la visualización -->
-          <ion-row>
-            <ion-col>
-              <ion-input
-                type="number"
-                name="ram"
-                label="Ram en Gb"
-                labelPlacement="floating"
-                fill="outline"
-                [(ngModel)]="formulario.ram">
-              </ion-input>
-            </ion-col>
-
-            <ion-col>
-              <ion-select
-                okText="Aceptar" 
-                cancelText="Cancelar"
-                label="Procesador" 
-                label-placement="floating" 
-                fill="outline"
-                name="procesador"
-                [(ngModel)]="formulario.procesador"
-                required>
-                <ion-select-option value="S/N">Sin datos</ion-select-option>
-                <ion-select-option value="Intel Xeon">Intel Xeon</ion-select-option>
-                <ion-select-option value="Intel Dual Core">Intel Dual Core</ion-select-option>
-                <ion-select-option value="Intel Core 2 Duo">Intel Core 2 Duo</ion-select-option>
-                <ion-select-option value="Intel Core 2 Quad">Intel Core 2 Quad</ion-select-option>
-                <ion-select-option value="Intel I3">Intel I3</ion-select-option>
-                <ion-select-option value="Intel I5">Intel I5</ion-select-option>
-                <ion-select-option value="Intel I7">Intel I7</ion-select-option>
-                <ion-select-option value="Intel I9">Intel I9</ion-select-option>
-                <ion-select-option value="AMD Ryzen 3">AMD Ryzen 3</ion-select-option>
-                <ion-select-option value="AMD Ryzen 5">AMD Ryzen 5</ion-select-option>
-                <ion-select-option value="AMD Ryzen 7">AMD Ryzen 7</ion-select-option>
-                <ion-select-option value="AMD Ryzen 9">AMD Ryzen 9</ion-select-option>
-              </ion-select>
-            </ion-col>
-
-            <ion-col>
-              <ion-select
-                okText="Aceptar" 
-                cancelText="Cancelar"
-                label="Sistema Operativo" 
-                label-placement="floating" 
-                fill="outline"
-                name="sistemaOperativo"
-                [(ngModel)]="formulario.sistemaOperativo"
-                required>
-                <ion-select-option value="S/N">Sin datos</ion-select-option>
-                <ion-select-option value="Windows XP">Windows XP</ion-select-option>
-                <ion-select-option value="Windows 7 PRO">Windows 7 PRO</ion-select-option>
-                <ion-select-option value="Windows 10 PRO">Windows 10 PRO</ion-select-option>
-                <ion-select-option value="Windows 11 PRO">Windows 11 PRO</ion-select-option>
-                <ion-select-option value="MacOs Mojave">MacOs Mojave</ion-select-option>
-                <ion-select-option value="MacOs Catalina">MacOs Catalina</ion-select-option>
-                <ion-select-option value="MacOs Big Sur">MacOs Big Sur</ion-select-option>
-                <ion-select-option value="MacOs Monterey">MacOs Monterey</ion-select-option>
-                <ion-select-option value="MacOs Ventura">MacOs Ventura</ion-select-option>
-                <ion-select-option value="Linux">Basado en Linux</ion-select-option>
-              </ion-select>
-            </ion-col>
-
-            <ion-col>
-              <ion-input
-                type="number"
-                name="almacenamiento"
-                label="Almacenamiento en Gb"
-                labelPlacement="floating"
-                fill="outline"
-                [(ngModel)]="formulario.almacenamiento">
-              </ion-input>
-            </ion-col>
-
-            <ion-col>
-              <ion-input
-                type="number"
-                name="porcentaje"
-                label="Porcentaje"
-                labelPlacement="floating"
-                fill="outline"
-                [(ngModel)]="formulario.porcentaje">
-              </ion-input>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+        <ion-col>
+          <ion-input
+            type="number"
+            name="porcentaje"
+            label="Porcentaje"
+            labelPlacement="floating"
+            fill="outline"
+            [(ngModel)]="formulario.porcentaje">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fin LAPTOP -->
 
 
-  
-        <ion-button type="submit" shape="round" expand="full" color="secondary">Crear Formulario</ion-button>
-      </form>
+
+    <ion-button type="submit" shape="round" expand="full" color="secondary">Crear Formulario</ion-button>
+  </form>
 </ion-content>
